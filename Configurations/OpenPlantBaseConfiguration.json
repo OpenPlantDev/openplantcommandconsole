@@ -198,6 +198,13 @@
       "ConfirmCommand": true
     },
     {
+      "name": "deleteNuGet",
+      "label": "Delete %OP_AppName% NuGet Folder",
+      "cmd": "call deleteNuGetFolder.bat",
+      "iconname": "DeleteNuGetFolder.ico",
+      "ConfirmCommand": true
+    },
+    {
       "name": "renameOut",
       "label": "Rename %OP_AppName% Out Folder",
       "cmd": "call renameout.bat",
@@ -282,6 +289,13 @@
       "requiresShell": false,
       "iconname": "www.ico"
     },
+    {
+      "name": "swagger",
+      "label": "Swagger UI",
+      "cmd": "https://qa-imodelhubapi.bentley.com/swagger/ui/index",
+      "requiresShell": false,
+      "iconname": "www.ico"
+    },
 
     // Build Local Install Set Commands
 
@@ -351,6 +365,7 @@
     // The name should not be changed, it is used by the code in the context menu
     {
       "name": "rebuild",
+      "label": "bb re %OP_PartName%",
       "cmd": "bb re %OP_PartName%"
     },
     {
@@ -371,7 +386,7 @@
     },
     {
       "tabName": "Web",
-      "commands": [ "connect", "bdf", "firebug", "hgmgt", "bsw-wiki", "google" ]
+      "commands": [ "connect", "bdf", "swagger", "firebug", "hgmgt", "bsw-wiki", "google" ]
     },
     {
       "tabName": "Local Install",

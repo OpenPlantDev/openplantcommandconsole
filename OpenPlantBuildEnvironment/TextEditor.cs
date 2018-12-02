@@ -13,10 +13,12 @@ namespace OpenPlantBuildEnvironment
         public string SingleFileParams { get; set; }
         public string MultipleFileParams { get; set; }
 
+        public bool AllowOpenAll { get; set; }
+
         public TextEditor(string name)
         {
             Name = name;
-
+            AllowOpenAll = true;
         }
 
         public void UpdateFromJson(jsonTextEditor jTextEditor)
@@ -28,11 +30,14 @@ namespace OpenPlantBuildEnvironment
             Path = !String.IsNullOrEmpty(jTextEditor.Path) ? jTextEditor.Path : Path;
             SingleFileParams = !String.IsNullOrEmpty(jTextEditor.SingleFileParams) ? jTextEditor.SingleFileParams : SingleFileParams;
             MultipleFileParams = !String.IsNullOrEmpty(jTextEditor.MultipleFileParams) ? jTextEditor.MultipleFileParams : MultipleFileParams;
+            AllowOpenAll = (jTextEditor.AllowOpenAll != null) ? (bool)jTextEditor.AllowOpenAll : AllowOpenAll;
+
         }
 
-        public void OpenSingleFile(string fileName)
+        public void OpenFile(string fileName)
         {
-            if(String.IsNullOrEmpty(Path) || !System.IO.File.Exists(Path) || String.IsNullOrEmpty(fileName))
+            if(String.IsNullOrEmpty(Path) || !System.IO.File.Exists(Path) || 
+                String.IsNullOrEmpty(fileName) || !System.IO.File.Exists (fileName))
                 return;
 
             string args = !String.IsNullOrEmpty(SingleFileParams) ? SingleFileParams : "";

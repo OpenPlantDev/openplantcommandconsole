@@ -342,6 +342,9 @@ namespace OpenPlantBuildEnvironment
         }
         private void UpdateTextEditorFromJsonData(jsonTextEditor jTextEditor)
         {
+            if(jTextEditor == null)
+                return;
+
             if (TextEditor == null)
                 TextEditor = new TextEditor("");
 

@@ -941,7 +941,7 @@ namespace OpenPlantCommandConsole
 
         private void CfgEditButton_Click(object sender, EventArgs e)
             {
-            if(String.IsNullOrEmpty (ConfigurationFile) || !System.IO.File.Exists (ConfigurationFile) || String.IsNullOrEmpty (Configuration.Settings.ConfigFileEditor))
+            if(String.IsNullOrEmpty (ConfigurationFile) || !System.IO.File.Exists (ConfigurationFile))
                 return;
 
             OpenFile (ConfigurationFile);
@@ -950,16 +950,16 @@ namespace OpenPlantCommandConsole
 
         private void CfgEditBaseButton_Click (object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty (Configuration.BaseConfigFile) || !System.IO.File.Exists (Configuration.BaseConfigFile) || String.IsNullOrEmpty (Configuration.Settings.ConfigFileEditor))
+            if(String.IsNullOrEmpty (Configuration.BaseConfigFile) || !System.IO.File.Exists (Configuration.BaseConfigFile))
                 return;
 
-            OpenFile (Configuration.BaseConfigFile);
+            OpenFile(Configuration.BaseConfigFile);
 
         }
 
         private void CfgEditUserButton_Click (object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty (Configuration.UserConfigFile) || !System.IO.File.Exists (Configuration.UserConfigFile) || String.IsNullOrEmpty (Configuration.Settings.ConfigFileEditor))
+            if(String.IsNullOrEmpty (Configuration.UserConfigFile) || !System.IO.File.Exists (Configuration.UserConfigFile))
                 return;
 
             OpenFile (Configuration.UserConfigFile);
@@ -1097,11 +1097,35 @@ namespace OpenPlantCommandConsole
             if(String.IsNullOrEmpty (fileName) || !System.IO.File.Exists (fileName))
                 return;
 
+            // try to use new TextEditor definition
+            if(Configuration.TextEditor != null)
+            {
+                Configuration.TextEditor.OpenFile(fileName);
+                return;
+            }
+
+            // if TextEditor not found try previous ConfigFileEditor setting
+            if(Configuration.Settings.ConfigFileEditor == null)
+                return;
+
             System.Diagnostics.Process.Start (Configuration.Settings.ConfigFileEditor, fileName);
+
             }
 
         private void OpenSession(IList<string> fileNames)
         {
+            // try to use new TextEditor definition
+            if(Configuration.TextEditor != null)
+            {
+                Configuration.TextEditor.OpenMultipleFiles(fileNames);
+                return;
+            }
+
+            // if TextEditor not found try previous ConfigFileEditor setting 
+            // and use multiple file options that are specific to NotePad++
+            if(Configuration.Settings.ConfigFileEditor == null)
+                return;
+
             string arguments = "-multiInst -nosession";
             string files = arguments;
             foreach (string fileName in fileNames)
@@ -2092,9 +2116,10 @@ namespace OpenPlantCommandConsole
 
         private void OpenRtb(string file)
             {
-            if(String.IsNullOrEmpty (file) || !System.IO.File.Exists (file) || String.IsNullOrEmpty (Configuration.Settings.ConfigFileEditor))
+            if(String.IsNullOrEmpty (file) || !System.IO.File.Exists (file)) // || String.IsNullOrEmpty (Configuration.Settings.ConfigFileEditor))
                 return;
-            System.Diagnostics.Process.Start (Configuration.Settings.ConfigFileEditor, file);
+            //System.Diagnostics.Process.Start (Configuration.Settings.ConfigFileEditor, file);
+            OpenFile(file);
             }
 
         private void ScratchPadRichTextBox_TextChanged(object sender, EventArgs e)

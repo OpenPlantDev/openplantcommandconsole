@@ -198,6 +198,7 @@ namespace OpenPlantBuildEnvironment
         public string Path { get; set; }
         public string SingleFileParams { get; set; }
         public string MultipleFileParams { get; set; }
+        public bool? AllowOpenAll { get; set; }
 
     }
 

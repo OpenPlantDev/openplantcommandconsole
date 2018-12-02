@@ -7,11 +7,11 @@ if [%OP_SeedSrcFolder%] == [] goto no_SeedFolderSet
 
 echo Seeding happens here
 
-set xcopyArgs=/E /I /Q
+set xcopyArgs=/E /I /Q /H /J
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 rem unfortunately I can't get this to work for CVS repositories (move away error) so can't add bin folder
-for %%X in (libsrc miscdev thirdparty util sdkdistribution sdksources) do (
+for %%X in (libsrc miscdev thirdparty util sdkdistribution sdksources nuget) do (
     set seedFolder=%OP_SeedSrcFolder%%%X
     set srcFolder=%OP_SrcFolder%%%X
     if not exist "!seedFolder!" (
