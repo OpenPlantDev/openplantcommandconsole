@@ -1,0 +1,69 @@
+{
+  "name": "Seed",
+  "description": "Seed",
+  "baseConfigurationFile": "D:\\CONNECT\\Configurations\\OpenPlantBaseConfiguration.json",
+
+  "settings": {
+    "rootFolder": "D:\\Seed\\",
+    "description": "Seed",
+    "appBackgroundColor": "IndianRed", //"MediumAquamarine",
+    "CmdShellBackgroundColor": 4
+
+  },
+
+  "streams": [
+    {
+      "name": "OpenPlantVancouver",
+      "enabled": true,
+      "PowerPlatformVersion": "10.8.0.34"
+    },
+    {
+      "name": "OpenPlantCurrentPRG",
+      "enabled": true,
+      "PowerPlatformVersion": "10.8.0.34"
+    },
+    {
+      "name": "OpenPlantNextDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.8.0.34"
+    },
+    {
+      "name": "Vancouver",
+      "enabled": true,
+      "PowerPlatformVersion": "10.9.0.34"
+    }
+  ],
+
+  "applications": [
+    {
+      "name": "opse",
+      "enabled": false
+    },
+    {
+      "name": "opm",
+      "enabled": false
+    },
+    {
+      "name": "oppid",
+      "enabled": false
+    },
+    {
+      "name": "opim",
+      "enabled": false
+    },
+    {
+      "name": "opom",
+      "enabled": false
+    },
+    {
+      "name": "oppa",
+      "enabled": false
+    },
+    {
+      "name": "all",
+      "enabled": true
+
+    }
+  ]
+
+}

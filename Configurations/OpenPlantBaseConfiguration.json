@@ -1,0 +1,1810 @@
+{
+  "name": "Base Configuration",
+  "description": "Base Configuration",
+
+  "settings": {
+     // These settings are usually overridden in the main configuration
+    "rootFolder": "C:\\Dev\\",
+    "description": "Default Configuration",
+    "appBackgroundColor": "LightGray",
+    "CmdShellBackgroundColor": 0,
+    "Debug": true,
+
+    // These paths are usually overridden in the user configuration
+    "batFolder": "D:\\CONNECT\\bat\\",
+    "localBuildStrategiesFolder": "D:\\CONNECT\\LocalBuildStrategies\\",
+    "baseEnvBatFile": "D:\\CONNECT\\bat\\OpenPlantBaseEnv.bat",
+    "configFileEditor": "C:\\Program Files (x86)\\Notepad++\\notepad++.exe",
+    "HgWorkBenchExe": "C:\\Program Files\\TortoiseHg\\thg.exe",
+    "IconsPath" : "D:\\CONNECT\\OpenPlantCommandConsole\\Icons",
+    "CodeSnippetsFileName": "D:\\CONNECT\\OpenPlantCommandConsole\\CodeSnippets.txt",
+    "ScratchPadFileName": "D:\\CONNECT\\OpenPlantCommandConsole\\ScratchPad.txt",
+
+    // These settings are usually overridden in the user configuration
+    "ConfirmCommand": false,
+    "ShowLocationsToolTips": true,
+    "ShowPartsToolTips": true,
+    "LocationsDoubleClickAction": "Explorer", // "Explorer", "CmdShell", "CopyToClipboard"  NOTE: must match case
+    "FilesDoubleClickAction": "Open", // "Explorer", "CmdShell", "CopyToClipboard", "Open"  NOTE: must match case
+    "PartsDoubleClickAction": "Explorer", // "Explorer", "CmdShell", "HgWorkBench", "CopyToClipboard" NOTE: must match case
+    "CommandSingleClickOption": true,
+    "sourceFolder": "src",
+    "outFolder": "out",
+    
+    // The PowerPlatform version is usually set by the stream in the main configuration, this is just a default
+    "PowerPlatformVersion": "10.8.0.34",
+
+    // These setting are not currently used    
+    "enableSeeding": false,
+    "seedRootFolder": "D:\\Seed\\",
+    "seedAppFolder": "All",
+
+  },
+
+  "locationCategories": [
+    {
+      "name": "Source",
+      "description": "Source",
+      "locations": [
+        {
+          "name": "Root Folder",
+          "path": "%OP_RootFolder%"
+        },
+        {
+          "name": "App Folder",
+          "path": "%OP_AppFolder%"
+        },
+        {
+          "name": "Src Folder",
+          "path": "%OP_SrcFolder%"
+        },
+        {
+          "name": "WorkSets",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets"
+        },
+        {
+          "name": "LastKnownGood",
+          "path": "%OP_SrcFolder%LastKnownGood\\Winx64"
+        },
+        {
+          "name": "Team Config",
+          "path": "%OP_SrcFolder%TeamConfig"
+        },
+        {
+          "name": "PythonScripts",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\Common\\ApplicationDb\\OPSE\\PythonScripts"
+        },
+        {
+          "name": "PythonScripts Override",
+          "path": "%OP_SrcFolder%PythonScripts"
+        },
+        {
+          "name": "BES Files",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\Common\\ApplicationDb\\OPSE\\DatabaseCreation"
+        },
+        {
+          "name": "OpenPlantSupportEngineering",
+          "path": "%OP_SrcFolder%openplant\\openplantsupportengineering"
+        },
+        {
+          "name": "OPSE config/appl",
+          "path": "%OP_SrcFolder%openplant\\openplantsupportengineering\\application\\supportmodeler\\config\\appl"
+        }
+      ]
+    },
+    {
+      "name": "Out",
+      "description": "Out",
+      "locations": [
+        {
+          "name": "Out Folder",
+          "path": "%OP_OutFolder%"
+        },
+        {
+          "name": "OPSE Exe",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPSE\\OpenPlantSupportEngineering"
+        },
+        {
+          "name": "OPM Exe",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPM\\OpenPlantModeler"
+        },
+        {
+          "name": "OPSE WorkSets",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPSE\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets"
+        },
+        {
+          "name": "OPSE FA Token Editor",
+          "path": "%OP_OutFolder%Winx64\\Build\\PowerOPSE\\PowerPlatform\\FATokenEditor"
+        },
+        {
+          "name": "OPM WorkSets",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPM\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets"
+        },
+        {
+          "name": "OPM FA Token Editor",
+          "path": "%OP_OutFolder%Winx64\\Build\\PowerOPM\\PowerPlatform\\FATokenEditor"
+        }
+      ]
+    },
+    {
+      "name": "System",
+      "description": "System",
+      "locations": [
+        {
+          "name": "Local App Data",
+          "path": "%localappdata%\\Bentley"
+        },
+        {
+          "name": "User Profile",
+          "path": "%userprofile%"
+        },
+        {
+          "name": "Installed WorkSets",
+          "path": "C:\\ProgramData\\Bentley\\OpenPlant CONNECT Edition\\Configuration\\Workspaces\\WorkSpace\\WorkSets"
+        },
+        {
+          "name": "OPSE Config Db Folder",
+          "path": "%localappdata%\\Bentley\\OpenPlantSupportEngineering"
+        }
+      ]
+    }
+  ],
+
+  "commands": [
+    {
+      "name": "runApp",
+      "label": "Run %OP_AppName%",
+      "cmd": "call %OP_APP_RUNCMD%",
+      "iconname": "%OP_AppName%.ico"
+    },
+
+    // Main
+    {
+      "name": "cmdShell",
+      "label": "Command Shell",
+      "cmd": "",
+      "iconname": "cmdConsole.ico"
+    },
+    {
+      "name": "ide",
+      "label": "%OP_AppName% IDE",
+      "cmd": "bb -p IDE b",
+      "iconname": "Vs.ico"
+    },
+    {
+      "name": "pull",
+      "label": "Pull %OP_AppName%",
+      "cmd": "bb pull",
+      "iconname": "Pull.ico"
+    },
+    {
+      "name": "build",
+      "label": "Build %OP_AppName%",
+      "cmd": "bb b",
+      "iconname": "Build.ico"
+    },
+    {
+      "name": "deleteOut",
+      "label": "Delete %OP_AppName% Out Folder",
+      "cmd": "call cleanout.bat",
+      "iconname": "DeleteFolder.ico",
+      "ConfirmCommand": true
+    },
+    {
+      "name": "deleteLKG",
+      "label": "Delete %OP_AppName% LKGs Folder",
+      "cmd": "call deleteLastKnownGoodFolder.bat",
+      "iconname": "DeleteLKGFolder.ico",
+      "ConfirmCommand": true
+    },
+    {
+      "name": "renameOut",
+      "label": "Rename %OP_AppName% Out Folder",
+      "cmd": "call renameout.bat",
+      "iconname": "Folderrename.ico",
+      "ConfirmCommand": true
+    },
+    {
+      "name": "runReport",
+      "label": "Run Report Editor",
+      "cmd": "call runReport.bat",
+      "iconname": "ReportIconBase.ico"
+    },
+    
+    {
+      "name": "debugBuildPart",
+      "label": "Debug Build Repository Parts text file",
+      "scmd": "call DebugBuildParts.bat",
+      "cmd": "bb debug --partbuildcmds > BuildParts.txt",
+      "iconname": "cmdConsole.ico",
+      "refresh" : true
+    },
+    
+    {
+      "name": "status",
+      "label": "%OP_AppName% Status",
+      "cmd": "bb stat",
+      "iconname": "Status.ico"
+    },
+    {
+      "name": "gist",
+      "label": "Gist",
+      "cmd": "C:\\DevTools\\Gist\\gist.exe",
+      "requiresShell": false,
+      "iconname": "gist.ico"
+    },
+    {
+      "name": "clientenvswitcher",
+      "label": "Client Env Switcher",
+      "cmd": "C:\\DevTools\\ClientEnvSwitcher\\ClientEnvSwitcher.exe",
+      "requiresShell": false,
+      "iconname": "ClientEnvSwitcher.ico"
+    },
+    {
+      "name": "bdf",
+      "label": "bdf",
+      "cmd": "http://builddescriptions.bentley.com",
+      "requiresShell": false,
+      "iconname": "www.ico"
+    },
+    {
+      "name": "connect",
+      "label": "CONNECT",
+      "cmd": "https://connect.bentley.com",
+      "requiresShell": false,
+      "iconname": "www.ico"
+    },
+    {
+      "name": "bsw-wiki",
+      "label": "bsw-wiki",
+      "cmd": "http://bsw-wiki.bentley.com/bin/view.pl",
+      "requiresShell": false,
+      "iconname": "www.ico"
+    },
+    {
+      "name": "hgmgt",
+      "label": "hg mgt",
+      "cmd": "http://hgmgt.bentley.com",
+      "requiresShell": false,
+      "iconname": "www.ico"
+    },
+    {
+      "name": "firebug",
+      "label": "Firebug",
+      "cmd": "http://firebug.bentley.com/firebugweb/default.aspx",
+      "requiresShell": false,
+      "iconname": "www.ico"
+    },
+    {
+      "name": "google",
+      "label": "Google",
+      "cmd": "https://www.google.com",
+      "requiresShell": false,
+      "iconname": "www.ico"
+    },
+
+    // Build Local Install Set Commands
+
+    {
+      "name": "bis",
+      "label": "%OP_AppName% Build Install Set",
+      "cmd": "bb buildinstallset",
+      "iconname": "Buildinstallset.ico"
+    },
+    {
+      "name": "bbg",
+      "label": "%OP_AppName% BundleBuild Get",
+      "cmd": "bb bundlebuild get",
+      "iconname": "BundlebuildGet.ico"
+    },
+    {
+      "name": "bbb",
+      "label": "%OP_AppName% BundleBuild Build",
+      "cmd": "bb bundlebuild build",
+      "iconname": "Bundlebuild.ico"
+    },
+
+
+    // Localize Build Commands
+    {
+      "name": "bbp",
+      "label": "%OP_AppName% PseudoLocalize Build",
+      "cmd": "bb pseudolocalize",
+      "iconname": "pseudolocalize.ico"
+    },
+    {
+      "name": "bbmr",
+      "label": "%OP_AppName% Martian Build",
+      "cmd": "bb -l mr build --tkOnly",
+      "iconname": "MartianBuild.ico"
+    },
+    {
+      "name": "runmr",
+      "label": "%OP_AppName% Run Martian",
+      "cmd": "%OP_APP_RUNCMD% -wsMS_CULTURE=mr",
+      "iconname": "MartianRun.ico"
+    },
+
+    // Stream Merge Commands
+    {
+      "name": "mbbin",
+      "label": "bb -t in",
+      //"cmd": "if not [%OP_MERGETOSTREAM%] == [] (bb -t %OP_MERGETOSTREAM% in) else (echo MergeToStream is not defined for stream %TeamName%)",
+      "cmd": "call bbin.bat",
+      "iconname": "MergeIn.ico"
+    },
+    {
+      "name": "mbbout",
+      "label": "bb -t out",
+      "cmd": "call bbout.bat",
+      //"cmd": "if not [%OP_MERGETOSTREAM%] == [] (bb -t %OP_MERGETOSTREAM% out) else (echo MergeToStream is not defined for stream %TeamName%)",
+      "iconname": "MergeOut.ico"
+    },
+    {
+      "name": "merge",
+      "label": "push --xstream",
+      //"cmd": "if not [%OP_MERGETOSTREAM%] == [] (bb -t %OP_MERGETOSTREAM% push -u --xstream) else (echo MergeToStream is not defined for stream %TeamName%)",
+      "cmd": "call bbpush.bat",
+      "iconname": "Merge.ico"
+    },
+    // The following are part specific and invoked by context menu options. Not intended to be used in Command Shell ListView
+    // The name should not be changed, it is used by the code in the context menu
+    {
+      "name": "rebuild",
+      "cmd": "bb re %OP_PartName%"
+    },
+    {
+      "name": "pseudo",
+      "cmd": "bb pseudolocalize %OP_PartName%"
+    },
+    {
+      "name": "martianize",
+      "cmd": "bb -l mr re --tkOnly %OP_PartName%"
+    }
+
+  ],
+
+  "commandTabs": [
+    {
+      "tabName": "Main",
+      "commands": [ "runApp", "cmdshell", "ide", "pull", "build", "deleteOut", "deleteLKG", "renameOut", "status", "gist" ]
+    },
+    {
+      "tabName": "Web",
+      "commands": [ "connect", "bdf", "firebug", "hgmgt", "bsw-wiki", "google" ]
+    },
+    {
+      "tabName": "Local Install",
+      "commands": [ "bis", "bbg", "bbb" ]
+    },
+    {
+      "tabName": "Localization Builds",
+      "commands": [ "bbp", "bbmr", "runmr" ]
+    },
+    {
+      "tabName": "Merge",
+      "commands": [ "mbbin", "mbbout", "merge" ]
+    },
+    {
+      "tabName": "More",
+      "commands": [ "runReport" ]
+    },
+    {
+      "tabName": "Tab5",
+      "commands": [ "bbp", "bbmr", "runmr" ],
+      "enabled": false
+    },
+    {
+      "tabName": "Tab6",
+      "commands": [ "cmdshell" ],
+      "enabled": false
+    },
+    {
+      "tabName": "Tab7",
+      "commands": [ "cmdshell" ],
+      "enabled": false
+    }
+  ],
+
+
+  "streams": [
+    {
+      "name": "OpenPlantVancouver",
+      "folderName": "OpVan",
+      "RepositoryRoot": "http://openplantvancouver.devteams.bentley.com",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.8.0.34",
+      "MergeToStream": "OpenPlantCurrentPRG"
+      //"ECFrameworkVersion": ""
+    },
+    {
+      "name": "OpenPlantCurrentDev",
+      "folderName": "CurrDev",
+      "RepositoryRoot": "http://openplantcurrentdev.devteams.bentley.com",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.8.0.34",
+      "MergeToStream": "OpenPlantCurrentPRG"
+    },
+    {
+      "name": "OpenPlantCurrentPRG",
+      "folderName": "CurrPRG",
+      "RepositoryRoot": "http://openplantcurrentprg.hgbranches.bentley.com",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.8.0.34",
+      "MergeToStream": "OpenPlantNextDev"
+    },
+    {
+      "name": "OpenPlantNextDev",
+      "folderName": "NextDev",
+      "RepositoryRoot": "http://openplantnextdev.devteams.bentley.com",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.8.0.34",
+      "MergeToStream": "Vancouver"
+    },
+    {
+      "name": "Vancouver",
+      "folderName": "Van",
+      "RepositoryRoot": "http://vancouver.hgbranches.bentley.com",
+      "enabled": false,
+      "debug": true,
+      "MergeToStream": "OpenPlantCurrentDev",
+      "PowerPlatformVersion": "10.9.0.19"
+    },
+    {
+      "name": "OpenPlant10-0PRG",
+      "iconName": "OpenPlant10_0PRG",
+      "folderName": "Op10-0PRG",
+      "RepositoryRoot": "http://openplant10-0prg.hgbranches.bentley.com/",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.8.0.43"
+    },
+    {
+      "name": "OpenPlant10-1PRG",
+      "iconName": "OpenPlant10_1PRG",
+      "folderName": "Op10-1PRG",
+      "RepositoryRoot": "http://openplant10-1prg.hgbranches.bentley.com/",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.10.0.23"
+    },
+    {
+      "name": "OpenPlantModeler_OPEFScripting",
+      "RepositoryRoot": "http://OpenPlantModeler_OPEFScripting.devteams.bentley.com",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.8.0.34"
+    },
+    {
+      "name": "OpenPlantModeler_BIM",
+      "RepositoryRoot": "http://openplantmodeler_bim.devteams.bentley.com",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.8.0.34"
+    },
+    {
+      "name": "SMC10-8",
+      "RepositoryRoot": "http://smc10-8.hgbranches.bentley.com/",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.8.0.34"
+    }
+  ],
+
+  "applications": [
+    {
+      "name": "opse",
+      "description": "OpenPlant Support Engineering",
+      "enabled": false,
+      "folderName": "OPSE",
+      "envBatFile": "opseEnv.bat",
+      "buildStrategy": "opse.dev",
+      "ProductName": "OpenPlantSupportEngineering",
+      "outputProductFolder": "PowerOPSE",
+      "runCmd": "%OutRoot%Winx64\\Product\\PowerOPSE\\OpenPlantSupportEngineering\\OpenPlantSupportEngineering.exe",
+      "CmdShellForegroundColor": "F"
+
+    },
+    {
+      "name": "opm",
+      "description": "OpenPlant Modeler",
+      "enabled": false,
+      "ProductName": "OpenPlantModeler",
+      "outputProductFolder": "PowerOPM",
+      "runCmd": "%OutRoot%Winx64\\Product\\PowerOPM\\OpenPlantModeler\\OpenPlantModeler.exe",
+      "CmdShellForegroundColor": "8"
+    },
+    {
+      "name": "oppid",
+      "description": "OpenPlant PID",
+      "enabled": false,
+      "ProductName": "OpenPlantPID",
+      "outputProductFolder": "OpenPlantPID",
+      "runCmd": "%OutRoot%Winx64\\Product\\OpenPlantPID\\OpenPlantPID\\OpenPlantPID.exe",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "opim",
+      "description": "OpenPlant Isometrics Manager",
+      "enabled": false,
+      "ProductName": "IsometricsManager",
+      "outputProductFolder": "opim",
+      "buildStrategy": "opim",
+      "runCmd": "%OutRoot%Winx64\\Product\\opim\\IsometricsManager\\Bentley.Isometrics.App",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "opom",
+      "description": "OpenPlant Orthographics Manager",
+      "enabled": false,
+      "ProductName": "OpenPlantOrthographicsManager",
+      "outputProductFolder": "OpenPlantOPOM",
+      "runCmd": "",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "oppa",
+      "description": "OpenPlant Project Administrator",
+      "enabled": false,
+      "runCmd": "",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "OPPIDDocs",
+      "description": "OpenPlant PID Documentations",
+      "enabled": false,
+      "buildStrategy": "OPPIDDocs",
+      "runCmd": "%OutRoot%Winx64\\Product\\",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "OPSEDocs",
+      "description": "OpenPlant Support Engineering Documentations",
+      "enabled": false,
+      "buildStrategy": "OPSEDocs",
+      "runCmd": "%OutRoot%Winx64\\Product\\",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "OPMDocs",
+      "description": "OpenPlant Modeler Documentations",
+      "enabled": false,
+      "buildStrategy": "OPMDocs",
+      "runCmd": "%OutRoot%Winx64\\Product\\",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "OPIMDocs",
+      "description": "OpenPlant Isometrics Manager Documentations",
+      "enabled": false,
+      "buildStrategy": "OPIMDocs",
+      "runCmd": "%OutRoot%Winx64\\Product\\",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "OPOMDocs",
+      "description": "OpenPlant Orthographics Manager Documentations",
+      "enabled": false,
+      "buildStrategy": "OPOMDocs",
+      "runCmd": "%OutRoot%Winx64\\Product\\",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "OPPADocs",
+      "description": "OpenPlant Project Administrator Documentations",
+      "enabled": false,
+      "buildStrategy": "OPPADocs",
+      "runCmd": "%OutRoot%Winx64\\Product\\",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "Building",
+      "description": "Building",
+      "enabled": false,
+      "buildStrategy": "Building.dev",
+      "runCmd": "%OutRoot%Winx64\\Product\\",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "BDDocs",
+      "description": "Building Documentation",
+      "enabled": false,
+      "buildStrategy": "BDDocs",
+      "runCmd": "%OutRoot%Winx64\\Product\\",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "opbimclient",
+      "enabled": false,
+      "description": "OpenPlant BIM Client",
+      "buildStrategy": "opbimclient.dev",
+      "runCmd": "%OutRoot%Winx64\\Product\\OPBimClientTest\\Tests\\PlantBimApp.exe",
+      "CmdShellForegroundColor": "B"
+    },
+    {
+      "name": "smc",
+      "enabled": false,
+      "folderName": "SMC",
+      "envBatFile": "Env.bat",
+      "description": "Structural Modeling Components",
+      "buildStrategy": "StructuralModeler.dev",
+      "outputProductFolder": "StructuralModeler",
+      "runCmd": "%OUTRoot%Winx64\\Product\\StructuralModeler\\StructuralModeler\\StructuralModeler.exe ",
+      "CmdShellForegroundColor": "F"
+    },
+
+
+
+    {
+      "name": "all",
+      "enabled": false,
+      "folderName": "All",
+      "envBatFile": "allEnv.bat",
+      "description": "All OpenPlant Products",
+      "buildStrategy": "OpenPlantProducts",
+      "associateWithAllFiles":  true
+
+    }
+  ],
+
+  "repositories": [
+    {
+      "name": "buildstrategies",
+      "url": "util/buildstrategies",
+      "path": "%OP_SrcFolder%buildstrategies",
+      "parts": [
+      ]
+    },
+    {
+      "name": "ModelSync",
+      "url": "modelsync/ModelSync"
+    },
+    {
+      "name": "DgnDomains-Plant",
+      "url": "plant/DgnDomains-Plant"
+    },
+    {
+      "name": "ecplugins",
+      "url": "plant/ecplugins",
+      "path": "%OP_SrcFolder%openplant\\ecplugins",
+      "parts": [
+        {
+          "partName": "PlantiModelECPlugin",
+          "description": "PlantiModelECPlugin",
+          "path": "%OP_SrcFolder%openplant\\ecplugins\\PlantBIM"
+        }
+      ]
+    },
+    {
+      "name": "opbimclient",
+      "url": "plant/opbimclient",
+      "path": "%OP_SrcFolder%openplant\\opbimclient",
+      "parts": [
+        {
+          "partName": "OPBimClient",
+          "description": "OPBimClient",
+          "path": "%OP_SrcFolder%openplant\\OPBimClient"
+        }
+      ]
+    },
+    {
+      "name": "opcommontools",
+      "url": "plant/opcommontools",
+      "path": "%OP_SrcFolder%openplant\\opcommontools",
+      "parts": [
+        {
+          "partName": "BIMAdapter",
+          "description": "BIMAdapter",
+          "subFolder": "BIMAdapter"
+        },
+        {
+          "partName": "BimAdapterNative",
+          "description": "BimAdapterNative",
+          "subFolder": "BimAdapterNative"
+        },
+        {
+          "partName": "TagBrowser",
+          "description": "TagBrowser",
+          "subFolder": "TagBrowser"
+        },
+        {
+          "partName": "opcommontools",
+          "description": "opcommontools"
+        }
+      ]
+    },
+    {
+      "name": "opconfiguration",
+      "url": "plant/opconfiguration",
+      "path": "%OP_SrcFolder%openplant\\opconfiguration",
+      "parts": [
+        {
+          "partName": "opconfiguration",
+          "description": "opconfiguration"
+        },
+        {
+          "partName": "OPSEDbs",
+          "description": "OPSE Dbs",
+          "subFolder": "Common\\ApplicationDb\\OPSE"
+        },
+        {
+          "partName": "OPMDbs",
+          "description": "OPM Dbs",
+          "subFolder": "Common\\ApplicationDb\\OPM"
+        },
+        {
+          "partName": "ReportDb",
+          "description": "Reports Db",
+          "subFolder": "Common\\Reports"
+        }
+      ]
+
+    },
+    {
+      "name": "OPEF",
+      "url": "plant/OPEF",
+      "path": "%OP_SrcFolder%openplant\\opef\\opef",
+      "parts": [
+        {
+          "partName": "Addin",
+          "description": "Addin",
+          "subFolder": "Addin"
+        }
+      ]
+    },
+    {
+      "name": "OPEF-CommonUITools",
+      "url": "plant/OPEF-CommonUITools",
+      "path": "%OP_SrcFolder%openplant\\opef\\CommonUITools",
+      "parts": [
+        {
+          "partName": "DesignObjectUI",
+          "description": "DesignObjectUI",
+          "subFolder": "DesignObjectUI"
+        },
+        {
+          "partName": "MenuNavigation",
+          "description": "MenuNavigation",
+          "subFolder": "MenuNavigation"
+        },
+        {
+          "partName": "Messaging",
+          "description": "Messaging",
+          "subFolder": "Messaging"
+        },
+        {
+          "partName": "ObjectSelector",
+          "description": "ObjectSelector",
+          "subFolder": "ObjectSelector"
+        },
+        {
+          "partName": "Placement",
+          "description": "Placement",
+          "subFolder": "Placement"
+        },
+        {
+          "partName": "Reporting",
+          "description": "Reporting",
+          "subFolder": "Reporting"
+        },
+        {
+          "partName": "ReportingLoader",
+          "description": "ReportingLoader",
+          "subFolder": "ReportingLoader"
+        }
+      ]
+    },
+    {
+      "name": "OPEF-ElementService",
+      "url": "plant/OPEF-ElementService",
+      "path": "%OP_SrcFolder%openplant\\opef\\ElementService",
+      "parts": [
+        {
+          "partName": "ElementService",
+          "description": "ElementService"
+        }
+      ]
+    },
+    {
+      "name": "OPEF-Geometry",
+      "url": "plant/OPEF-Geometry",
+      "path": "%OP_SrcFolder%openplant\\opef\\Geometry",
+      "parts": [
+        {
+          "partName": "Geometry",
+          "description": "Geometry"
+        }
+      ]
+    },
+    {
+      "name": "OPEF-PlatformComponents",
+      "url": "plant/OPEF-PlatformComponents",
+      "path": "%OP_SrcFolder%openplant\\opef\\PlatformComponents",
+      "parts": [
+        {
+          "partName": "DgnECPluginManager",
+          "description": "DgnECPluginManager",
+          "subFolder": "DgnECPluginManager"
+        },
+        {
+          "partName": "DgnPersistenceStrategy",
+          "description": "DgnPersistenceStrategy",
+          "subFolder": "DgnPersistenceStrategy"
+        },
+        {
+          "partName": "EC",
+          "description": "EC",
+          "subFolder": "EC"
+        },
+        {
+          "partName": "MsInterop",
+          "description": "MsInterop",
+          "subFolder": "MsDgn"
+        },
+        {
+          "partName": "ObjectDetector",
+          "description": "ObjectDetector",
+          "subFolder": "ObjectDetector"
+        }
+      ]
+    },
+    {
+      "name": "OPEF-ProjectComponents",
+      "url": "plant/OPEF-ProjectComponents",
+      "path": "%OP_SrcFolder%openplant\\opef\\ProjectComponents",
+      "parts": [
+        {
+          "partName": "Briefcase",
+          "description": "Briefcase",
+          "subFolder": "Briefcase"
+        },
+        {
+          "partName": "ComponentTemplate",
+          "description": "ComponentTemplate",
+          "subFolder": "ComponentTemplate"
+        },
+        {
+          "partName": "Database",
+          "description": "Database",
+          "subFolder": "Database"
+        },
+        {
+          "partName": "DataWrappers",
+          "description": "DataWrappers",
+          "subFolder": "DataWrappers"
+        },
+        {
+          "partName": "ImageManager",
+          "description": "ImageManager",
+          "subFolder": "ImageManager"
+        },
+        {
+          "partName": "Sync",
+          "description": "Sync",
+          "subFolder": "Sync"
+        }
+      ]
+    },
+    {
+      "name": "OPEF-ProjectDashboard",
+      "url": "plant/OPEF-ProjectDashboard",
+      "path": "%OP_SrcFolder%openplant\\opef\\ProjectDashboard",
+      "parts": [
+        {
+          "partName": "ProjectDashboard",
+          "description": "ProjectDashboard",
+          "subFolder": "ProjectDashboard"
+        },
+
+        {
+          "partName": "TabulatedDataProcessor",
+          "description": "TabulatedDataProcessor",
+          "subFolder": "TabulatedDataProcessor"
+        }
+      ]
+    },
+    {
+      "name": "OPEF-ResourceManager",
+      "url": "plant/OPEF-ResourceManager",
+      "path": "%OP_SrcFolder%openplant\\opef\\ResourceManager",
+      "parts": [
+        {
+          "partName": "ResourceManager",
+          "description": "ResourceManager"
+        }
+      ]
+    },
+    {
+      "name": "OPEF-Tools",
+      "url": "plant/OPEF-Tools",
+      "path": "%OP_SrcFolder%openplant\\opef\\Tools",
+      "parts": [
+        {
+          "partName": "BES_DM",
+          "description": "BES_DM",
+          "subFolder": "BES_DM"
+        },
+        {
+          "partName": "EngineeringTools",
+          "description": "EngineeringTools",
+          "subFolder": "BESEngineeringTools"
+        },
+        {
+          "partName": "PWUtilities",
+          "description": "PWUtilities",
+          "subFolder": "PWUtilities"
+        },
+        {
+          "partName": "Utilities",
+          "description": "Utilities",
+          "subFolder": "Utilities"
+        }
+      ]
+    },
+    {
+      "name": "openplantcore",
+      "url": "plant/openplantcore",
+      "path": "%OP_SrcFolder%openplant\\openplantcore",
+      "parts": [
+      ]
+    },
+    {
+      "name": "openplantframework",
+      "url": "plant/openplantframework",
+      "path": "%OP_SrcFolder%openplant\\Modeler\\openplantframework",
+      "parts": [
+        {
+          "partName": "Consistencychecker",
+          "description": "Consistencychecker",
+          "subFolder": "OpenPlantFramework\\ConsistencyChecker"
+        }
+      ]
+    },
+    //{
+    //  "name": "openplantsdk",
+    //  "url": "plant/openplantsdk"
+    //},
+    {
+      "name": "openplantsupportengineering",
+      "url": "plant/openplantsupportengineering",
+      "path": "%OP_SrcFolder%openplant\\openplantsupportengineering",
+      "parts": [
+        {
+          "partName": "OPSERibbonRsc",
+          "description": "OPSE Ribbon Rsc",
+          "subFolder": "Ribbon"
+        },
+        {
+          "partName": "OPSEIcons",
+          "description": "OPSE Icons",
+          "subFolder": "OPSEIcons"
+        },
+        {
+          "partName": "ConfigDb",
+          "description": "OPSE ConfigDb",
+          "subFolder": "PowerOPSE"
+        },
+        {
+          "partName": "ObjectDetectorPluginsSMCPlugin",
+          "description": "ObjectDetector SMC Plugin",
+          "subFolder": "application\\ObjectDetectorPlugins\\SMCPlugin"
+        },
+        {
+          "partName": "GridLines",
+          "description": "GridLines",
+          "subFolder": "application\\GridLines"
+        }
+
+      ]
+    },
+    {
+      "name": "opim",
+      "url": "plant/opim",
+      "path": "%OP_SrcFolder%openplant\\opim",
+      "parts": [
+      ]
+    },
+    {
+      "name": "opm",
+      "url": "plant/opm",
+      "path": "%OP_SrcFolder%openplant\\Modeler\\opm",
+      "parts": [
+        {
+          "partName": "OPMRibbonRsc",
+          "description": "OPM Ribbon Rsc",
+          "subFolder": "Ribbon"
+        },
+        {
+          "partName": "OPMIcons",
+          "description": "OPM Icons",
+          "subFolder": "OPMIcons"
+        },
+        {
+          "partName": "ConfigDb",
+          "description": "OPM ConfigDb",
+          "subFolder": "PowerOPM"
+        },
+        {
+          "partName": "MechAddin",
+          "description": "MechAddin",
+          "subFolder": "mechanical\\src\\hvac\\mechaddin"
+        },
+        {
+          "partName": "MechanicalApi",
+          "description": "MechanicalApi",
+          "subFolder": "mechanical\\src\\common\\src\\Api"
+        },
+        {
+          "partName": "OPModeler",
+          "description": "OPModeler",
+          "subFolder": "mechanical\\src\\hvac"
+        },
+        {
+          "partName": "BusinesskeyControls",
+          "description": "BusinesskeyControls",
+          "subFolder": "mechanical\\src\\BusinessKeyControls"
+        }
+      ]
+    },
+    {
+      "name": "opom",
+      "url": "plant/opom",
+      "path": "%OP_SrcFolder%openplant\\opom",
+      "parts": [
+      ]
+    },
+    {
+      "name": "oppa",
+      "url": "plant/oppa",
+      "path": "%OP_SrcFolder%openplant\\oppa",
+      "parts": [
+      ]
+    },
+    {
+      "name": "oppid",
+      "url": "plant/oppid",
+      "path": "%OP_SrcFolder%openplant\\oppid",
+      "parts": [
+        {
+          "partName": "PID",
+          "description": "PID",
+          "subFolder": "Pid"
+        },
+        {
+          "partName": "PID_Catalog",
+          "description": "PID Catalog",
+          "subFolder": "Pid\\Catalog"
+        },
+        {
+          "partName": "PID_Interfaces",
+          "description": "PID Interfaces",
+          "subFolder": "Pid\\Interfaces"
+        },
+        {
+          "partName": "SCH_Schematics",
+          "description": "SCH Schematics",
+          "subFolder": "Schematics"
+        },
+        {
+          "partName": "SCH_Catalog",
+          "description": "SCH Catalog",
+          "subFolder": "Schematics\\Catalog"
+        },
+        {
+          "partName": "SCH_Interfaces",
+          "description": "SCH Interfaces",
+          "subFolder": "Schematics\\Interfaces"
+        },
+        {
+          "partName": "FW_ObjectModel",
+          "description": "FW ObjectModel",
+          "subFolder": "Framework\\ObjectModel"
+        },
+        {
+          "partName": "FW_OMInterfaces",
+          "description": "FW OMInterfaces",
+          "subFolder": "Framework\\OMInterfaces"
+        },
+        {
+          "partName": "FW_Persist_PersistenceManager",
+          "description": "FW PersistenceManager",
+          "subFolder": "Framework\\Persistence\\PersistenceManager"
+        },
+        {
+          "partName": "FW_Persist_PlantBim",
+          "description": "FW PlantBim",
+          "subFolder": "Framework\\Persistence\\BIM"
+        },
+        {
+          "partName": "FW_Persist_AlternateRepBase",
+          "description": "FW AlternateRepBase",
+          "subFolder": "Framework\\Persistence\\AlternateRepositoryBase"
+        },
+        {
+          "partName": "FW_Utilities",
+          "description": "FW Utilities",
+          "subFolder": "Framework\\Utilities"
+        },
+        {
+          "partName": "FW_BusinessKeyControls",
+          "description": "FW BusinessKeyControls",
+          "subFolder": "Framework\\BusinessKeyControls"
+        },
+        {
+          "partName": "MsCadSysCadElement",
+          "description": "MsCadSysCadElement",
+          "subFolder": "Framework\\CadSystem\\MS\\CadElement"
+        },
+        {
+          "partName": "CadSystem",
+          "description": "CadSystem",
+          "subFolder": "Framework\\CadSystem"
+        },
+        {
+          "partName": "BmfCadSysInterfaces",
+          "description": "BmfCadSysInterfaces",
+          "subFolder": "Framework\\CadSystem"
+        },
+        {
+          "partName": "OPPIDRibbonRsc",
+          "description": "OPPID RibbonRsc",
+          "subFolder": "Pid\\ribbon\\standard"
+        },
+        {
+          "partName": "OPPID_ISORibbonRsc",
+          "description": "OPPID ISORibbonRsc",
+          "subFolder": "Pid\\ribbon\\ISO"
+        },
+        {
+          "partName": "OPPID_CommonRibbonRsc",
+          "description": "OPPID CommonRibbonRsc",
+          "subFolder": "Pid\\ribbon\\Common"
+        },
+        {
+          "partName": "OPPIDIcons",
+          "description": "OPPID Icons",
+          "subFolder": "Pid\\OPPIDIcons"
+        }
+      ]
+    },
+    {
+      "name": "opresources",
+      "url": "plant/opresources",
+      "path": "%OP_SrcFolder%openplant\\opresources",
+      "parts": [
+      ]
+    },
+    {
+      "name": "plantutil",
+      "url": "plant/plantutil",
+      "path": "%OP_SrcFolder%openplant\\Modeler\\plantutil",
+      "parts": [
+        {
+          "partName": "ConfigurationManager",
+          "description": "Configuration Manager",
+          "subFolder": "ConfigurationManager"
+        },
+        {
+          "partName": "PipelineManager",
+          "description": "Pipeline Manager",
+          "subFolder": "PipelineManager"
+        },
+        {
+          "partName": "SpecgridSelection",
+          "description": "Spec Grid Selection",
+          "subFolder": "plant3d\\src\\specGrid\\specGrid"
+        },
+        {
+          "partName": "SpecReader",
+          "description": "Spec Reader",
+          "subFolder": "SpecReader"
+        },
+        {
+          "partName": "StandardPreferences",
+          "description": "Standard Preferences",
+          "subFolder": "StandardPreferences"
+        },
+        {
+          "partName": "TypeConverters",
+          "description": "Type Converters",
+          "subFolder": "TypeConverters"
+        },
+        {
+          "partName": "Utilities",
+          "description": "Utilities",
+          "subFolder": "Utilities"
+        }
+      ]
+    },
+    {
+      "name": "spectools",
+      "url": "plant/spectools",
+      "path": "%OP_SrcFolder%openplant\\Modeler\\spectools",
+      "parts": [
+        {
+          "partName": "AutoplantAPtoEC",
+          "description": "AutoplantAPtoEC",
+          "subFolder": "catalogexchangeplugins\\AutoPLANT\\APtoEC"
+        },
+        {
+          "partName": "AutoplantECplugins",
+          "description": "AutoplantECplugins",
+          "subFolder": "catalogexchangeplugins\\AutoPLANT\\AutoPLANTECCatPlugin"
+        },
+        {
+          "partName": "AutoplantECtoAP",
+          "description": "AutoplantECtoAP",
+          "subFolder": "catalogexchangeplugins\\AutoPLANT\\ECtoAP"
+        },
+        {
+          "partName": "OpenplantphysicalECtoOPP",
+          "description": "OpenplantphysicalECtoOPP",
+          "subFolder": "catalogexchangeplugins\\Openplantphysical\\ECtoOPPhysical"
+        },
+        {
+          "partName": "OpenplantphysicalECtoOPP",
+          "description": "OpenplantphysicalECtoOPP",
+          "subFolder": "catalogexchangeplugins\\Openplantphysical\\OPPhysicalECCatPlugin"
+        },
+        {
+          "partName": "XDbProvider",
+          "description": "XDbProvider",
+          "subFolder": "XDbProvider"
+        },
+        {
+          "partName": "XDbWrapper",
+          "description": "XDbWrapper",
+          "subFolder": "XDbWrapper"
+        },
+        {
+          "partName": "XDbProviderInstaller",
+          "description": "XDbProviderInstaller",
+          "subFolder": "XDbProviderInstaller"
+        }
+      ]
+    },
+    {
+      "name": "openplantdocs",
+      "url": "plant/documentation",
+      "path": "%OP_SrcFolder%openplant\\documentation",
+      "parts": [
+        {
+          "partName": "OpenPlantSupportEngineeringDocumentation",
+          "description": "OpenPlantSupportEngineeringDocumentation",
+          "app": "OPSEDocs"
+        },
+        {
+          "partName": "OpenPlantPIDDocumentation",
+          "description": "OpenPlantPIDDocumentation",
+          "app": "OPPIDDocs"
+        },
+        {
+          "partName": "OpenPlantModelerDocumentation",
+          "description": "OpenPlantModelerDocumentation",
+          "app": "OPMDocs"
+        },
+        {
+          "partName": "OpenPlantIsometricsManagerDocumentation",
+          "description": "OpenPlantIsometricsManagerDocumentation",
+          "app": "OPIMDocs"
+        },
+        {
+          "partName": "OpenPlantProjectAdministratorDocumentation",
+          "description": "OpenPlantProjectAdministratorDocumentation",
+          "app": "OPPADocs"
+        },
+        {
+          "partName": "OpenPlantOrthographicsManagerDocumentation",
+          "description": "OpenPlantOrthographicsManagerDocumentation",
+          "app": "OPOMDocs"
+        }
+      ]
+    },
+    {
+      "name": "smc",
+      "url": "",
+      "path": "%OP_SrcFolder%StructuralModelingComponents",
+      "parts": [
+      ]
+    }
+
+  ],
+
+  "fileCategories": [
+    {
+      "name": "BuildStrategies",
+      "description": "Build Strategies",
+      "path": "%OP_SrcFolder%buildstrategies\\",
+      "files": [
+        {
+          "name": "OpenPlantShared.BuildStrategy.xml"
+        },
+        {
+          "name": "Opse.BuildStrategy.xml",
+          "app": "opse"
+        },
+        {
+          "name": "Opse.Dev.BuildStrategy.xml",
+          "app": "opse"
+        },
+        {
+          "name": "Opm.BuildStrategy.xml",
+          "app": "opm"
+        },
+        {
+          "name": "Opm.Dev.BuildStrategy.xml",
+          "app": "opm"
+        },
+        {
+          "name": "Oppid.BuildStrategy.xml",
+          "app": "oppid"
+        },
+        {
+          "name": "Oppid.Dev.BuildStrategy.xml",
+          "app": "oppid"
+        }
+      ]
+    },
+    {
+      "name": "SourceCfgFiles",
+      "description": "Source cfg Files",
+      "files": [
+        {
+          "name": "SupportEngineering.cfg",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\SupportEngineering_Imperial\\SupportEngineering\\",
+          "description": "SupportEngineering.cfg (Imperial)",
+          "app": "opse"
+        },
+        {
+          "name": "SupportEngineering.cfg",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets\\OpenPlantMetric\\Standards\\SupportEngineering_Metric\\SupportEngineering\\",
+          "description": "SupportEngineering.cfg (Metric)",
+          "app": "opse"
+        },
+        {
+          "name": "SupportEngineering.cfg",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets\\OpenPlantMixedMetric\\Standards\\SupportEngineering_MixedMetric\\SupportEngineering\\",
+          "description": "SupportEngineering.cfg (MixedMetric)",
+          "app": "opse"
+        },
+        {
+          "name": "Modeler.cfg",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\Modeler_Imperial\\Modeler\\",
+          "description": "Modeler.cfg (Imperial)",
+          "app": "opm"
+        },
+        {
+          "name": "Modeler.cfg",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets\\OpenPlantMetric\\Standards\\Modeler_Metric\\Modeler\\",
+          "description": "Modeler.cfg (Metric)",
+          "app": "opm"
+        },
+        {
+          "name": "Modeler.cfg",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets\\OpenPlantMixedMetric\\Standards\\Modeler_MixedMetric\\Modeler\\",
+          "description": "Modeler.cfg (MixedMetric)",
+          "app": "opm"
+        },
+        {
+          "name": "Pid.cfg",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\Pid_Imperial\\Pid\\",
+          "description": "Pid.cfg (Imperial)",
+          "app": "oppid"
+        },
+        {
+          "name": "Pid.cfg",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets\\OpenPlantMetric\\Standards\\Pid_Metric\\Pid\\",
+          "description": "Pid.cfg (Metric)",
+          "app": "oppid"
+        },
+        {
+          "name": "Pid.cfg",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets\\OpenPlantMixedMetric\\Standards\\Pid_MixedMetric\\Pid\\",
+          "description": "Pid.cfg (MixedMetric)",
+          "app": "oppid"
+        }
+
+      ]
+    },
+    {
+      "name": "OutCfgFiles",
+      "description": "Output Cfg Files",
+      "files": [
+        {
+          "name": "OpenPlantImperial.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\%OP_APP_OUTPRODUCTFOLDER%\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\",
+          "description": "OpenPlantImperial.cfg"
+        },
+        {
+          "name": "OpenPlantMetric.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\%OP_APP_OUTPRODUCTFOLDER%\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\",
+          "description": "OpenPlantMetric.cfg"
+        },
+        {
+          "name": "OpenPlantMixedMetric.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\%OP_APP_OUTPRODUCTFOLDER%\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\",
+          "description": "OpenPlantMixedMetric.cfg"
+        },
+        {
+          "name": "Pid.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\OpenPlantPID\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\OpenPlant\\PID\\",
+          "description": "Pid.cfg (Imperial)",
+          "app": "oppid"
+        },
+        {
+          "name": "Pid.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\OpenPlantPID\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantMetric\\Standards\\OpenPlant\\PID\\",
+          "description": "Pid.cfg (Metric)",
+          "app": "oppid"
+        },
+        {
+          "name": "Pid.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\OpenPlantPID\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantMixedMetric\\Standards\\OpenPlant\\PID\\",
+          "description": "Pid.cfg (MixedMetric)",
+          "app": "oppid"
+        },
+        
+        {
+          "name": "Modeler.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPM\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\OpenPlant\\Modeler\\",
+          "description": "Modeler.cfg (Imperial)",
+          "app": "opm"
+        },
+        {
+          "name": "Modeler.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPM\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantMetric\\Standards\\OpenPlant\\Modeler\\",
+          "description": "Modeler.cfg (Metric)",
+          "app": "opm"
+        },
+        {
+          "name": "Modeler.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPM\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantMixedMetric\\Standards\\OpenPlant\\Modeler\\",
+          "description": "Modeler.cfg (MixedMetric)",
+          "app": "opm"
+        },
+        
+        {
+          "name": "SupportEngineering.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPSE\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\OpenPlant\\SupportEngineering\\",
+          "description": "SupportEngineering.cfg (Imperial)",
+          "app": "opse"
+        },
+        {
+          "name": "SupportEngineering.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPSE\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantMetric\\Standards\\OpenPlant\\SupportEngineering\\",
+          "description": "SupportEngineering.cfg (Metric)",
+          "app": "opse"
+        },
+        {
+          "name": "SupportEngineering.cfg",
+          "path": "%OP_OutFolder%Winx64\\Product\\PowerOPSE\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantMixedMetric\\Standards\\OpenPlant\\SupportEngineering\\",
+          "description": "SupportEngineering.cfg (MixedMetric)",
+          "app": "opse"
+        }
+      ]
+    },
+    {
+      "name": "SourceSchemaFiles",
+      "description": "Source schema Files",
+      "files": [
+        {
+          "name": "*.xml",
+          "path": "%OP_SrcFolder%openplant\\opconfiguration\\Schemas\\WorkSet\\"
+        }
+
+      ]
+    },
+    {
+      "name": "OutputSchemaFiles",
+      "description": "Output schema Files",
+      "files": [
+        {
+          "name": "OpenPlant_3D.01.08.ecschema.xml",
+          "path": "%OP_OutFolder%Winx64\\Product\\%OP_APP_OUTPRODUCTFOLDER%\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\OpenPlant\\Schemas\\",
+          "description": "OpenPlant_3D.01.08"
+        },
+        {
+          "name": "OpenPlant_3D_Supplemental_Modeling.01.08.ecschema.xml",
+          "path": "%OP_OutFolder%Winx64\\Product\\%OP_APP_OUTPRODUCTFOLDER%\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\OpenPlant\\Schemas\\",
+          "description": "OpenPlant_3D_Supplemental_Modeling.01.08.ecschema.xml"
+        },
+        {
+          "name": "OpenPlant_Supplemental_Tagging.01.08.ecschema.xml",
+          "path": "%OP_OutFolder%Winx64\\Product\\%OP_APP_OUTPRODUCTFOLDER%\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\OpenPlant\\Schemas\\",
+          "description": "OpenPlant_Supplemental_Tagging.01.08.ecschema.xml"
+        },
+        {
+          "name": "OpenPlant_3D_Supplemental_ModelingViews.01.08.ecschema.xml",
+          "path": "%OP_OutFolder%Winx64\\Product\\%OP_APP_OUTPRODUCTFOLDER%\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets\\OpenPlantImperial\\Standards\\OpenPlant\\Schemas\\",
+          "description": "OpenPlant_3D_Supplemental_ModelingViews.01.08.ecschema.xml\"%OP_APP_OUTPRODUCTFOLDER%"
+        },
+      ]
+    },
+    {
+      "name": "OPMRibbonFiles",
+      "description": "OPM Ribbon Files",
+      "path": "%OP_SrcFolder%openplant\\Modeler\\opm\\ribbon\\",
+      "app": "opm",
+      "files": [
+        {
+          "name": "EquipmentRibbonItems.xml"
+        },
+        {
+          "name": "HVACRibbonItems.xml"
+        },
+        {
+          "name": "ModelServerRibbonItems.xml"
+        },
+        {
+          "name": "PipingRibbonItems.xml"
+        },
+        {
+          "name": "RacewaysRibbonItems.xml"
+        },
+        {
+          "name": "StructuralRibbonItems.xml"
+        },
+        {
+          "name": "SupportsRibbonItems.xml"
+        },
+        {
+          "name": "OPMTaskWorkflow.xml"
+        },
+        {
+          "name": "OPMIcons.mke",
+          "path": "%OP_SrcFolder%openplant\\Modeler\\opm\\OPMIcons\\"
+        }
+      ]
+    },
+    {
+      "name": "OPPIDRibbonFiles",
+      "description": "OPPID Ribbon Files",
+      "app": "oppid",
+      "path": "%OP_SrcFolder%openplant\\oppid\\ribbon\\",
+      "files": [
+        {
+          "name": "Ap\\OPPID_APStandardRibbonItems.xml"
+        },
+        {
+          "name": "Common\\OPPID_CommonRibbonItems.xml"
+        },
+        {
+          "name": "DIN\\OPPID_DINStandardRibbonItems.xml"
+        },
+        {
+          "name": "ISO\\OPPID_ISOStandardRibbonItems.xml"
+        },
+        {
+          "name": "KKS\\OPPID_KKSStandardRibbonItems.xml"
+        },
+        {
+          "name": "Standard\\OPPID_PIDStandardRibbonItems.xml"
+        },
+        {
+          "name": "Ap\\OPPID_APTaskWorkflow.xml"
+        },
+        {
+          "name": "DIN\\OPPID_DINTaskWorkflow.xml"
+        },
+        {
+          "name": "ISO\\OPPID_ISOTaskWorkflow.xml"
+        },
+        {
+          "name": "KKS\\OPPID_KKSTaskWorkflow.xml"
+        },
+        {
+          "name": "Standard\\OPPIDTaskWorkflow.xml"
+        },
+        {
+          "name": "OPPIDIcons.mke",
+          "path": "%OP_SrcFolder%openplant\\oppid\\OPPIDIcons\\"
+        }
+      ]
+    },
+    {
+      "name": "OPSERibbonFiles",
+      "description": "OPSE Ribbon Files",
+      "app": "opse",
+      "files": [
+        {
+          "name": "OPSEWorkflow.xml",
+          "path": "%OP_SrcFolder%openplant\\openplantsupportengineering\\ribbon\\"
+        },
+        {
+          "name": "OPSEIcons.mke",
+          "path": "%OP_SrcFolder%openplant\\openplantsupportengineering\\OPSEIcons\\"
+        }
+      ]
+    },
+    {
+      "name": "OPSEDocsFiles",
+      "description": "OPSE Documentation Build Files",
+      "app": "opsedocs",
+      "files": [
+        {
+          "name": "OPSEDocs.partfile.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\"
+        },
+        {
+          "name": "OPSEDocs.InstallerBeforeCompile.mki",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\opse\\"
+        },
+        {
+          "name": "OPSEDocs.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\opse\\"
+        },
+        {
+          "name": "OPSEDocs.wix.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\opse\\"
+        },
+        {
+          "name": "OPSEDocsInstaller.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\opse\\"
+        },
+        {
+          "name": "OPSEDocsRegistry.wxs",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\opse\\"
+        }
+      ]
+    },
+    {
+      "name": "OPPIDDocsFiles",
+      "description": "OPPID Documentation Build Files",
+      "app": "OPPIDdocs",
+      "files": [
+        {
+          "name": "OPPIDDocs.partfile.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\"
+        },
+        {
+          "name": "OPPIDDocs.InstallerBeforeCompile.mki",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPID\\"
+        },
+        {
+          "name": "OPPIDDocs.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPID\\"
+        },
+        {
+          "name": "OPPIDDocs.wix.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPID\\"
+        },
+        {
+          "name": "OPPIDDocsInstaller.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPID\\"
+        },
+        {
+          "name": "OPPIDDocsRegistry.wxs",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPID\\"
+        }
+      ]
+    },
+    {
+      "name": "OPMDocsFiles",
+      "description": "OPM Documentation Build Files",
+      "app": "OPMdocs",
+      "files": [
+        {
+          "name": "OPMDocs.partfile.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\"
+        },
+        {
+          "name": "OPMDocs.InstallerBeforeCompile.mki",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPM\\"
+        },
+        {
+          "name": "OPMDocs.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPM\\"
+        },
+        {
+          "name": "OPMDocs.wix.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPM\\"
+        },
+        {
+          "name": "OPMDocsInstaller.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPM\\"
+        },
+        {
+          "name": "OPMDocsRegistry.wxs",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPM\\"
+        }
+      ]
+    },
+    {
+      "name": "OPIMDocsFiles",
+      "description": "OPIM Documentation Build Files",
+      "app": "OPIMdocs",
+      "files": [
+        {
+          "name": "OPIMDocs.partfile.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\"
+        },
+        {
+          "name": "OPIMDocs.InstallerBeforeCompile.mki",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPIM\\"
+        },
+        {
+          "name": "OPIMDocs.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPIM\\"
+        },
+        {
+          "name": "OPIMDocs.wix.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPIM\\"
+        },
+        {
+          "name": "OPIMDocsInstaller.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPIM\\"
+        },
+        {
+          "name": "OPIMDocsRegistry.wxs",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPIM\\"
+        }
+      ]
+    },
+    {
+      "name": "OPOMDocsFiles",
+      "description": "OPOM Documentation Build Files",
+      "app": "OPOMdocs",
+      "files": [
+        {
+          "name": "OPOMDocs.partfile.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\"
+        },
+        {
+          "name": "OPOMDocs.InstallerBeforeCompile.mki",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPOM\\"
+        },
+        {
+          "name": "OPOMDocs.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPOM\\"
+        },
+        {
+          "name": "OPOMDocs.wix.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPOM\\"
+        },
+        {
+          "name": "OPOMDocsInstaller.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPOM\\"
+        },
+        {
+          "name": "OPOMDocsRegistry.wxs",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPOM\\"
+        }
+      ]
+    },
+    {
+      "name": "OPPADocsFiles",
+      "description": "OPPA Documentation Build Files",
+      "app": "OPPAdocs",
+      "files": [
+        {
+          "name": "OPPADocs.partfile.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\"
+        },
+        {
+          "name": "OPPADocs.InstallerBeforeCompile.mki",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPA\\"
+        },
+        {
+          "name": "OPPADocs.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPA\\"
+        },
+        {
+          "name": "OPPADocs.wix.xml",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPA\\"
+        },
+        {
+          "name": "OPPADocsInstaller.prewire.mke",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPA\\"
+        },
+        {
+          "name": "OPPADocsRegistry.wxs",
+          "path": "%OP_SrcFolder%openplant\\Documentation\\OPPA\\"
+        }
+      ]
+    }
+  ]
+}

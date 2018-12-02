@@ -1,0 +1,60 @@
+{
+  "name": "Sample",
+  "description": "Sample Configuration",
+  "baseConfigurationFile": "OpenPlantBaseConfiguration.json",
+  "userConfigurationFile": "UserConfiguration.json",
+
+  "settings": {
+    "rootFolder": "D:\\CONNECT\\Sample\\",
+    "appBackgroundColor": "DarkCyan",
+
+  },
+  "streams": [
+    {
+      "name": "OpenPlantCurrentDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.3"
+    },
+    {
+      "name": "OpenPlantNextDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.3"
+    }
+  ],
+  "applications": [
+    {
+      "name": "opse",
+      "enabled": true
+    },
+    {
+      "name": "opm",
+      "enabled": true
+    },
+    {
+      "name": "oppid",
+      "enabled": true
+    },
+    {
+      "name": "opim",
+      "enabled": false
+    },
+    {
+      "name": "opom",
+      "enabled": false
+    },
+    {
+      "name": "oppa",
+      "enabled": false
+    },
+    {
+      "name": "opbimclient",
+      "enabled": true
+    },
+    {
+      "name": "all",
+      "enabled": false
+
+    }
+  ]
+
+}

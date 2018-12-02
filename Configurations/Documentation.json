@@ -1,0 +1,54 @@
+{
+  "name": "Documentation",
+  "description": "Documentation Builds",
+  "baseConfigurationFile": "OpenPlantBaseConfiguration.json",
+  "userConfigurationFile":  "UserConfiguration.json",
+  "settings": {
+    "rootFolder": "D:\\CONNECT\\Docs\\",
+    "appBackgroundColor": "gray",
+    "CmdShellBackgroundColor": 0,
+    "ConfirmCommand": false,
+    "EnableSeeding": true
+  },
+  "commandTabs": [
+    {
+      "tabName": "Main",
+      "commands": [ "pull", "cmdshell", "build", "bis", "deleteOut", "deleteLKG" ]
+    },
+    {
+      "tabName": "Web",
+      "commands": [ "connect", "bdf", "firebug", "hgmgt", "bsw-wiki", "trydotnet", "MSBranches", "google" ]
+    }
+  ],
+
+  "streams": [
+    {
+      "name": "OpenPlantCurrentDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.11.0.22"
+    }
+  ],
+	"applications" : [{
+			"name" : "BDDocs",
+			"enabled" : false
+		}, {
+			"name" : "OPPIDDocs",
+			"enabled" : true
+		}, {
+			"name" : "OPMDocs",
+			"enabled" : true
+		}, {
+			"name" : "OPSEDocs",
+			"enabled" : true
+		}, {
+			"name" : "OPIMDocs",
+			"enabled" : true
+		}, {
+			"name" : "OPOMDocs",
+			"enabled" : true
+		}, {
+			"name" : "OPPADocs",
+			"enabled" : true
+		}
+	]
+}

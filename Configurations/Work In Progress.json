@@ -1,0 +1,118 @@
+{
+  "name": "WIP",
+  "description": "Work In Progress",
+  "baseConfigurationFile": "OpenPlantBaseConfiguration.json",
+  "userConfigurationFile":  "UserConfiguration.json",
+  "settings": {
+    "rootFolder": "D:\\CONNECT\\WIP\\",
+    "appBackgroundColor": "LightSteelBlue",
+    "CmdShellBackgroundColor": 1,
+    "ConfirmCommand": false,
+    "EnableSeeding": true
+  },
+  "commandTabs": [
+    {
+      "tabName": "Main",
+      "commands": [ "runApp", "cmdshell", "ide", "pull", "build", "deleteOut", "deleteLKG", "renameOut", "status", 
+                    "gist", "clientenvswitcher" ]
+    },
+    {
+      "tabName": "Web",
+      "commands": [ "connect", "bdf", "firebug", "hgmgt", "bsw-wiki", "trydotnet", "MSBranches", "google" ]
+    },
+    {
+      "tabName": "Local Install",
+      "commands": [ "bis", "bbg", "bbb" ]
+    },
+    {
+      "tabName": "Localization Builds",
+      "commands": [ "bbp", "bbmr", "runmr" ]
+    }
+  ],
+
+  "streams": [
+    {
+      "name": "OpenPlantCurrentDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    },
+    {
+      "name": "OpenPlantNextDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    }
+  ],
+  "applications": [
+    {
+      "name": "opse",
+      "enabled": true,
+      "overrides": [
+        //{
+        //  "stream": "OpenPlantVancouver",
+        //  "PowerPlatformVersion": "10.8.0.41"
+        //}
+        //{
+        //  "stream": "OpenPlantVancouver",
+        //  "PowerPlatformVersion": "10.8.0.37",
+        //  "ECFrameworkVersion": "9.13.2.46",
+        //  "BuildStrategy":  "opse",
+        //  "debug": false
+        //},
+        //{
+        //  "stream": "OpenPlantNextDev",
+        //  "PowerPlatformVersion": "10.9.0.8",
+        //  "ECFrameworkVersion": "",
+        //  "BuildStrategy": "opse",
+        //  "debug": false,
+        //}
+
+      ]
+
+    },
+    {
+      "name": "opm",
+      "enabled": true,
+      "overrides": [
+        //{
+        //  "stream": "OpenPlantVancouver",
+        //  "PowerPlatformVersion": "10.8.0.41"
+        //}
+      ]
+    },
+    {
+      "name": "oppid",
+      "enabled": true,
+      "overrides": [
+        //{
+        //  "stream": "OpenPlantVancouver",
+        //  "PowerPlatformVersion": "10.8.0.40"
+        //}
+        //{
+        //  "stream": "OpenPlantNextDev",
+        //  "PowerPlatformVersion": "10.9.0.8",
+        //  "ECFrameworkVersion": "",
+        //  "BuildStrategy": "opse",
+        //  "debug": false,
+        //}
+
+      ]
+    },
+    {
+      "name": "opim",
+      "enabled": true
+    },
+    {
+      "name": "opom",
+      "enabled": false
+    },
+    {
+      "name": "oppa",
+      "enabled": true
+    },
+    {
+      "name": "opbimclient",
+      "enabled": true
+    }
+
+  ]
+}

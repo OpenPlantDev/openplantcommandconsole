@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AD8FE44-9A9F-4B56-841A-2A5C4B5C63D5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OpenPlantCommandConsoleUI</RootNamespace>
+    <AssemblyName>CommandConsoleUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CmdConsole.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClipboardMonitor.cs" />
+    <Compile Include="ConfigurationFile.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessManager.Designer.cs">
+      <DependentUpon>ProcessManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListSearcher.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="TabPageCommandListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TabPageCommandListView.Designer.cs">
+      <DependentUpon>TabPageCommandListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabPageCommandOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TabPageCommandOptions.Designer.cs">
+      <DependentUpon>TabPageCommandOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreePartsAddon.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessManager.resx">
+      <DependentUpon>ProcessManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TabPageCommandListView.resx">
+      <DependentUpon>TabPageCommandListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabPageCommandOptions.resx">
+      <DependentUpon>TabPageCommandOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenPlantBuildEnvironment\OpenPlantBuildEnvironment.csproj">
+      <Project>{ab65b82e-32e2-4dc6-a65e-ecffa0af70c2}</Project>
+      <Name>OpenPlantBuildEnvironment</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OpenPlantCommandConsole.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenPlantCommandConsole.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-square-button.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bentley.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cmdConsole.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CopyToClipboard.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DBConnect.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explorer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fileopen.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_explore.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OPIM.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OPM.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OPPA.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OPPID.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OPSE.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wmploc_29607.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenPlantCurrentPRG.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenPlantNextDev.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenPlantVancouver.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vancouver.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_square_button.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OPOM.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CmdConsole.ico" />
+    <Content Include="console.ico" />
+    <None Include="Resources\EditBase.ico" />
+    <None Include="Resources\EditUser.ico" />
+    <Content Include="Resources\OpenPlant10-0PRG.ico" />
+    <Content Include="Resources\OpenPlantCurrentDev.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

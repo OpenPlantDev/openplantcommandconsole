@@ -1,0 +1,76 @@
+{
+  "name": "Merge",
+  "description": "Merge",
+  "baseConfigurationFile": "D:\\CONNECT\\Configurations\\OpenPlantBaseConfiguration.json",
+
+  "settings": {
+    "rootFolder": "D:\\CONNECT\\Merge\\",
+    "appBackgroundColor": "DarkKhaki",
+    "cmdShellBackgroundColor": 6,
+    "EnableSeeding": true
+  },
+  
+  "commands" : [
+    {
+      "name": "prgsrv",
+      "label": "PRG Srv",
+      "cmd": "\"C:\\Program Files\\Internet Explorer\\iexplore.exe\"",
+      "args": "http://prgsrv.bentley.com/",
+      "requiresShell": false,
+      "iconname": "www.ico"
+    },
+  ],
+  
+  "commandTabs": [
+    {
+      "tabName": "Main",
+      "commands": ["pull",  "mbbin", "mbbout", "merge", "prgsrv", "cmdshell", "deleteLKG" ]
+    },
+    {
+      "tabName": "Web",
+      "commands": ["bdf", "firebug", "hgmgt"]
+    }
+  ],
+
+  "streams": [
+    {
+      "name": "OpenPlantVancouver",
+      "enabled": true,
+      "PowerPlatformVersion": "10.8.0.43"
+    },
+    {
+      "name": "OpenPlantCurrentDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    },
+    {
+      "name": "OpenPlantCurrentPRG",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    },
+    {
+      "name": "OpenPlant10-0PRG",
+      "enabled": true,
+      "PowerPlatformVersion": "10.8.0.43"
+    },
+    {
+      "name": "OpenPlantNextDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    },
+    {
+      "name": "Vancouver",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    }
+  ],
+
+  "applications": [
+    {
+      "name": "all",
+      "enabled": true
+
+    }
+  ]
+
+}

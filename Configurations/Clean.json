@@ -1,0 +1,69 @@
+{
+  "name": "Clean",
+  "description": "Clean",
+  "baseConfigurationFile": "OpenPlantBaseConfiguration.json",
+
+  "settings": {
+    "rootFolder": "D:\\CONNECT\\Clean\\",
+    "description": "Clean",
+    "appBackgroundColor": "DarkSeaGreen", //"MediumAquamarine",
+    "CmdShellBackgroundColor": 2,
+    "EnableSeeding": true
+
+  },
+
+  "streams": [
+    {
+      "name": "OpenPlantCurrentDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    },
+    {
+      "name": "OpenPlantCurrentPRG",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    },
+    {
+      "name": "OpenPlantNextDev",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    },
+    {
+      "name": "Vancouver",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    }
+  ],
+
+  "applications": [
+    {
+      "name": "opse",
+      "enabled": true
+    },
+    {
+      "name": "opm",
+      "enabled": true
+    },
+    {
+      "name": "oppid",
+      "enabled": true
+    },
+    {
+      "name": "opim",
+      "enabled": true
+    },
+    {
+      "name": "opom",
+      "enabled": true
+    },
+    {
+      "name": "oppa",
+      "enabled": true
+    },
+    {
+      "name": "opbimclient",
+      "enabled": true,
+    }
+  ]
+
+}

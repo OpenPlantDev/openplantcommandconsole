@@ -1,0 +1,262 @@
+{
+  "settings": {
+    "rootFolder": "D:\\CONNECT\\",
+    "batFolder": "D:\\CONNECT\\bat",
+    "localBuildStrategiesFolder": "D:\\CONNECT\\LocalBuildStrategies\\",
+    "sourceFolder": "src",
+    "outFolder": "out",
+    "PowerPlatformVersion": "10.8.0.37",
+    "baseCmdFile": "OpenPlantBaseEnv.cmd",
+    "useSourceTreeTypes": true,
+    "configFileEditor": "C:\\Program Files (x86)\\Notepad++\\notepad++.exe",
+    "locations": [
+      {
+        "name": "OPEF Addin",
+        "path": "%SrcRoot%openplant\\opef\\opef\\Addin"
+      },
+      {
+        "name": "OPEF ElementService",
+        "path": "%SrcRoot%openplant\\opef\\ElementService"
+      },
+      {
+        "name": "Source - WorkSets",
+        "path": "%SrcRoot%openplant\\opconfiguration\\OpenPlantConfiguration\\Workspaces\\WorkSpace\\WorkSets"
+      },
+      {
+        "name": "Out - WorkSets",
+        "path": "%OutRoot%Winx64\\Product\\PowerOPSE\\Configuration\\WorkSpaces\\WorkSpace\\WorkSets"
+      },
+      {
+        "name": "Installed - WorkSets",
+        "path": "C:\\ProgramData\\Bentley\\OpenPlant CONNECT Edition\\Configuration\\Workspaces\\WorkSpace\\WorkSets"
+      },
+      {
+        "name": "Local App Data",
+        "path": "%localappdata%\\Bentley"
+      }
+    ]
+
+  },
+  "commands": [
+    {
+        "column": "A",
+        "cmds": [
+          {
+            "name": "runApp",
+            "label": "Run Application",
+            "cmd": "call %OP_APP_RUNCMD%"
+          },
+          {
+            "name": "cmdShell",
+            "label": "Open Command Shell",
+            "cmd": ""
+          },
+          {
+            "name": "ide",
+            "label": "IDE",
+            "cmd": "bb -p IDE b"
+          },
+          {
+            "name": "deleteOut",
+            "label": "Delete Out Folder",
+            "cmd": "call cleanout.bat"
+          },
+          {
+            "name": "renameOut",
+            "label": "Rename Out Folder",
+            "cmd": "call renameout.bat"
+          },
+          {
+            "name": "delLKG",
+            "label": "Delete LastKnownGood",
+            "cmd": "call deleteLastKnownGoodFolder.bat"
+          }
+        ]
+      },
+    {
+      "column":  "B",
+      "cmds": [
+        {
+          "name": "pull",
+          "label": "Pull",
+          "cmd": "bb pull"
+        },
+        {
+          "name": "build",
+          "label": "Build",
+          "cmd": "bb b"
+        },
+        {
+          "name": "bis",
+          "label": "Build Install Set",
+          "cmd": "bb buildinstallset"
+        },
+        {
+          "name": "bbg",
+          "label": "Bundle Build Get",
+          "cmd": "bb bundlebuild get"
+        },
+        {
+          "name": "bbb",
+          "label": "Bundle Build Build",
+          "cmd": "bb bundlebuild build"
+        },
+        {
+          "name": "status",
+          "label": "Status",
+          "cmd": "bb stat"
+        }
+      ]
+    }
+  ],
+
+  "streams": [
+    {
+      "name": "OpenPlantVancouver",
+      "type": "dev",
+      "PowerPlatformVersion": "10.8.0.34"
+      //"mappedDrive": "M:"
+    },
+    {
+      "name": "OpenPlantCurrentDev",
+      "enabled": false,
+      "type": "dev",
+      "PowerPlatformVersion": "10.8.0.34"
+      //"mappedDrive": "M:"
+    },
+    {
+      "name": "OpenPlantCurrentPRG",
+      "type": "branch",
+      "PowerPlatformVersion": "10.8.0.34"
+      //"mappedDrive": "N:"
+    },
+    {
+      "name": "OpenPlantNextDev",
+      "type": "dev",
+      "PowerPlatformVersion": "10.8.0.37"
+      //"mappedDrive": "O:"
+    },
+    {
+      "name": "Vancouver",
+      "type": "branch",
+      "PowerPlatformVersion": "10.9.0.19"
+    },
+    {
+      "name": "OpenPlantNextPRG",
+      "type": "branch",
+      "enabled": false,
+      "PowerPlatformVersion": "10.8.0.34"
+      //"mappedDrive": "P:"
+    }
+  ],
+
+  "srcTreeTypes": [
+    {
+      "name": "wip",
+      "folderName": "WIP",
+      "description": "Work In Progress",
+      "backgroundColor": "1",
+      "foregroundColor": "F"
+    },
+    {
+      "name": "clean",
+      "folderName": "Clean",
+      "description": "Clean",
+      "backgroundColor": "3",
+      "foregroundColor": "7"
+    },
+    {
+      "name": "merge",
+      "folderName": "Merge",
+      "description": "Merge",
+      "backgroundColor": "0",
+      "foregroundColor": "7"
+    }
+  ],
+
+  "applications": [
+    {
+      "name": "opse",
+      "folderName": "OPSE",
+      "envBatFile": "opseEnv.bat",
+      "description": "OpenPlant Support Engineering",
+      "buildStrategy": "opse.dev",
+      "runCmd": "%OutRoot%Winx64\\Product\\PowerOPSE\\OpenPlantSupportEngineering\\OpenPlantSupportEngineering.exe",
+      "foregroundColor": "F",
+      "locations": [
+        {
+          "name": "Source - OpenPlantSupportEngineering",
+          "path": "%SrcRoot%openplant\\openplantsupportengineering"
+        },
+        {
+          "name": "Source - config/appl",
+          "path": "%SrcRoot%openplant\\openplantsupportengineering\\application\\supportmodeler\\config\\appl"
+        }
+      ]
+    },
+    {
+      "name": "opm",
+      "description": "OpenPlant Modeler",
+      "runCmd": "%OutRoot%Winx64\\Product\\PowerOPM\\OpenPlantModeler\\OpenPlantModeler.exe",
+      "foregroundColor": "8",
+      "locations": [
+        {
+          "name": "Source - OPM",
+          "path": "%SrcRoot%openplant\\Modeler\\opm"
+        },
+        {
+          "name": "Source - OPM Automation",
+          "path": "%SrcRoot%openplant\\Modeler\\opm\\mechanical\\src\\hvac\\Automation"
+        },
+        {
+          "name": "Source - PlantUtil",
+          "path": "%SrcRoot%openplant\\Modeler\\plantutil"
+        }
+      ]
+    },
+    {
+      "name": "oppid",
+      "description": "OpenPlant PID",
+      "runCmd": "%OutRoot%Winx64\\Product\\OpenPlantPID\\OpenPlantPID\\OpenPlantPID.exe",
+      "foregroundColor": "B",
+      "locations": [
+        {
+          "name": "Source - OPPID",
+          "path": "%SrcRoot%openplant\\oppid"
+        },
+        {
+          "name": "Source - PlantUtil",
+          "path": "%SrcRoot%openplant\\Modeler\\plantutil"
+        }
+      ]
+    },
+    {
+      "name": "opim",
+      "enabled" :  false,
+      "description": "OpenPlant Isometrics Manager",
+      "runCmd": "",
+      "foregroundColor": "B"
+    },
+    {
+      "name": "all",
+      "folderName": "All",
+      "envBatFile": "allEnv.bat",
+      "description": "All OpenPlant Products",
+      "buildStrategy": "OpenPlantProducts"
+
+    }
+  ],
+  "partBuilds": [
+    {
+      "name": "opef",
+      "description": "OPEF Addin",
+      "cmd": "bb re opef"
+    },
+    {
+      "name": "commonui",
+      "description": "OPEF Common-UI",
+      "cmd": "bb re Common-UI"
+    }
+  ]
+
+}

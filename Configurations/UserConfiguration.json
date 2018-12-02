@@ -1,0 +1,29 @@
+{
+  "settings": {
+  
+    //"batFolder": "D:\\CONNECT\\bat\\",
+    //"baseEnvBatFile": "D:\\CONNECT\\bat\\OpenPlantBaseEnv.bat",
+    //"configFileEditor": "C:\\Program Files (x86)\\Notepad++\\notepad++.exe",
+    //"HgWorkBenchExe": "C:\\Program Files\\TortoiseHg\\thg.exe",
+    //"ScratchPadFileName": "D:\\CONNECT\\OpenPlantCommandConsole\\ScratchPad.txt",
+    //"CodeSnippetsFileName": "D:\\CONNECT\\OpenPlantCommandConsole\\CodeSnippets.txt",
+    //"IconsPath" : "D:\\CONNECT\\OpenPlantCommandConsole\\Icons",
+  
+  
+    //"ShowLocationsToolTips": false,
+    //"ShowPartsToolTips": false,
+    //"LocationsDoubleClickAction": "CmdShell", // "Explorer", "CmdShell", "CopyToClipboard"  NOTE: must match case
+    //"FilesDoubleClickAction": "Open", // "Explorer", "CmdShell", "CopyToClipboard", "Open"  NOTE: must match case
+    //"PartsDoubleClickAction": "Explorer", // "Explorer", "CmdShell", "HgWorkBench", "CopyToClipboard" NOTE: must match case
+    //"CommandSingleClickOption": false
+
+
+  }
+
+  //"commandTabs": [
+  //  {
+  //    "tabName": "My Commands",
+  //    "commands": [ "cmdshell", "ide", "pull", "build", "deleteOut", "deleteLKG", "renameOut", "status" ]
+  //  }
+  //]
+}

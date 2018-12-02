@@ -1,0 +1,30 @@
+
+UpdateView after Bootstrap (bootstrap button is still enabled)
+Add a files tree to allow opening of files 
+
+
+
+Goals:
+    - replace use of taskbar toolbars
+    - bootstrap without having to create an env.bat file manually
+    - set PP_VER without having to modify every env.bat file
+    - start command shell for a given stream and application
+    - run commands (pull, build, etc.) for a given stream and application
+    - Get rid of UAC dialog when opening command shell as admin
+    - build a particular part
+    - define locations and be able to open explorer or cmd shell there
+    
+
+    
+
+BuildEnvironment:
+    * Configurations
+        * Set of Streams and Applications
+    * Repositories
+    * Streams
+    * Applications    
+    * Commands
+    * Locations
+    * Files
+    * Overrides (build Strategy, PowerPlatform version, ECFramework version, debug flag )
+    * Settings

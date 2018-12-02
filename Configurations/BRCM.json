@@ -1,0 +1,64 @@
+{
+  "name": "BRCM",
+  "description": "Work In Progress",
+  "baseConfigurationFile": "OpenPlantBaseConfiguration.json",
+  "userConfigurationFile": "UserConfiguration.json",
+  "settings": {
+    "rootFolder": "D:\\CONNECT\\WIP\\",
+    "appBackgroundColor": "LightCyan",
+    "CmdShellBackgroundColor": 1,
+    "ConfirmCommand": false,
+    "EnableSeeding": false
+  },
+  
+  "commandTabs": [
+    {
+      "tabName": "Main",
+      "commands": [ "runApp", "cmdshell", "ide", "pull", "build", "deleteOut", "deleteLKG", "renameOut", "status", "gist" ]
+    },
+    {
+      "tabName": "Web",
+      "commands": [ "connect", "bdf", "firebug", "hgmgt", "bsw-wiki", "trydotnet", "MSBranches", "google" ]
+    },
+  ],
+  
+
+  "streams": [
+    {
+      "name": "ElectricalCE",
+      "folderName": "ElecCE",
+      "RepositoryRoot": "http://electricalce.devteams.bentley.com",
+      "enabled": true,
+      "PowerPlatformVersion": "10.10.0.10"
+    }  
+  ],
+  "applications": [
+    {
+      "name": "brcm",
+      "buildStrategy": "brcm",
+      "enabled": true,
+      "ProductName": "BRCM",
+      "outputProductFolder": "BRCM",
+      "runCmd": "%OutRoot%Winx64\\Product\\BRCM\\BRCM\\BRCM.exe",
+    }
+  ],
+  "repositories": [
+    {
+      "name": "brcm",
+      "url": "electrical/brcm",
+      "path": "%OP_SrcFolder%electrical\\brcm"
+    },
+  ],
+  "fileCategories": [
+    {
+      "name": "BuildStrategies",
+      "files": [
+        {
+          "name": "brcm.BuildStrategy.xml",
+          "app": "brcm"
+        },
+      ]
+    }
+  ]
+
+}
