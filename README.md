@@ -1,11 +1,11 @@
 # OpenPlant Command Console
 Command Console for OpenPlant build environment
 
-## Setup
+### Setup
 
-## Initialization
+#### Initialization
 
-## Building
+#### Building
 
-## Test
+#### Test
 
