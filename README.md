@@ -3,9 +3,9 @@ Command Console for OpenPlant build environment
 
 ### Setup
 
-#### Initialization
+* Initialization
 
-#### Building
+* Building
 
-#### Test
+* Test
 
