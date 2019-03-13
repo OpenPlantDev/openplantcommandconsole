@@ -1,6 +1,9 @@
 {
   "name": "Base Configuration",
   "description": "Base Configuration",
+  
+  "shellEnvVariables" : [
+  ],
 
   "settings": {
      // These settings are usually overridden in the main configuration
@@ -178,6 +181,18 @@
       "iconname": "Pull.ico"
     },
     {
+      "name": "bdfBootStrap",
+      "label": "BootStrap %OP_AppName% with BDF",
+      "cmd": "BentleyBootstrap.py PowerOPM:10.2.0.37",
+      "iconname": "Pull.ico"
+    },
+    {
+      "name": "bdfpull",
+      "label": "Pull %OP_AppName% with BDF",
+      "cmd": "bb pull -r bdfserver:PowerOPM:10.2.0.37",
+      "iconname": "Pull.ico"
+    },
+    {
       "name": "build",
       "label": "Build %OP_AppName%",
       "cmd": "bb b",
@@ -321,10 +336,34 @@
 
     // Localize Build Commands
     {
+      "name": "bbmp",
+      "label": "%OP_AppName% Pull Martian Build",
+      "cmd": "bb -l mr pull",
+      "iconname": "MartianRun.ico"
+    },
+    {
       "name": "bbp",
       "label": "%OP_AppName% PseudoLocalize Build",
       "cmd": "bb pseudolocalize",
       "iconname": "pseudolocalize.ico"
+    },
+    {
+      "name": "bbmri",
+      "label": "%OP_AppName% Martian Build Install",
+      "cmd": "bb -l mr buildinstallset -c",
+      "iconname": "MartianBuild.ico"
+    },
+    {
+      "name": "bbmrbbg",
+      "label": "%OP_AppName% Martian Bundle Get",
+      "cmd": "bb -l mr bundlebuild get",
+      "iconname": "MartianBuild.ico"
+    },
+    {
+      "name": "bbmrbbb",
+      "label": "%OP_AppName% Martian Bundle Build",
+      "cmd": "bb -l mr bundlebuild build",
+      "iconname": "MartianBuild.ico"
     },
     {
       "name": "bbmr",
@@ -333,9 +372,33 @@
       "iconname": "MartianBuild.ico"
     },
     {
+      "name": "bbst",
+      "label": "%OP_AppName% Save Transkit",
+      "cmd": "bb savetranskit --publishDir=D:\\CONNECT\\Transkits",
+      "iconname": "Bundlebuild.ico"
+    },
+    {
       "name": "runmr",
       "label": "%OP_AppName% Run Martian",
       "cmd": "%OP_APP_RUNCMD% -wsMS_CULTURE=mr",
+      "iconname": "MartianRun.ico"
+    },
+    {
+      "name": "bbpzhcn",
+      "label": "%OP_AppName% Pull Chinese Build",
+      "cmd": "bb -l zh-CN pull",
+      "iconname": "MartianRun.ico"
+    },
+    {
+      "name": "bbzhcn",
+      "label": "%OP_AppName% Chinese Build",
+      "cmd": "bb -l zh-CN build --useL10nRepoDir",
+      "iconname": "MartianBuild.ico"
+    },
+    {
+      "name": "runzhcn",
+      "label": "%OP_AppName% Run Chinese",
+      "cmd": "%OP_APP_RUNCMD% -wsMS_CULTURE=zh-CN",
       "iconname": "MartianRun.ico"
     },
 
@@ -359,6 +422,13 @@
       "label": "push --xstream",
       //"cmd": "if not [%OP_MERGETOSTREAM%] == [] (bb -t %OP_MERGETOSTREAM% push -u --xstream) else (echo MergeToStream is not defined for stream %TeamName%)",
       "cmd": "call bbpush.bat",
+      "iconname": "Merge.ico"
+    },
+    {
+      "name": "mergeNoSticky",
+      "label": "push --xstream No Sticky",
+      //"cmd": "if not [%OP_MERGETOSTREAM%] == [] (bb -t %OP_MERGETOSTREAM% push -u --xstream) else (echo MergeToStream is not defined for stream %TeamName%)",
+      "cmd": "call bbpushNoU.bat",
       "iconname": "Merge.ico"
     },
     // The following are part specific and invoked by context menu options. Not intended to be used in Command Shell ListView
@@ -458,6 +528,15 @@
       "enabled": false,
       "debug": true,
       "PowerPlatformVersion": "10.8.0.34",
+      "MergeToStream": "OpenPlantNextPRG"
+    },
+    {
+      "name": "OpenPlantNextPRG",
+      "folderName": "NextPRG",
+      "RepositoryRoot": "http://openplantnextprg.hgbranches.bentley.com",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.11.0.38",
       "MergeToStream": "Vancouver"
     },
     {
@@ -486,6 +565,15 @@
       "enabled": false,
       "debug": true,
       "PowerPlatformVersion": "10.10.0.23"
+    },
+    {
+      "name": "OpenPlant10-2PRG",
+      "iconName": "OpenPlant10_2PRG",
+      "folderName": "Op10-2PRG",
+      "RepositoryRoot": "http://openplant10-2prg.hgbranches.bentley.com/",
+      "enabled": false,
+      "debug": true,
+      "PowerPlatformVersion": "10.11.0.36"
     },
     {
       "name": "OpenPlantModeler_OPEFScripting",
@@ -565,7 +653,7 @@
       "name": "oppa",
       "description": "OpenPlant Project Administrator",
       "enabled": false,
-      "runCmd": "",
+      "runCmd": "%OutRoot%Winx64\\Product\\oppa\\ProjectAdministrator\\Bentley.Plant.ProjectAdministrator.exe",
       "CmdShellForegroundColor": "B"
     },
     {
@@ -651,9 +739,19 @@
       "runCmd": "%OUTRoot%Winx64\\Product\\StructuralModeler\\StructuralModeler\\StructuralModeler.exe ",
       "CmdShellForegroundColor": "F"
     },
+    {
+      "name": "Substation",
+      "description": "Substation",
+      "enabled": false,
+      "folderName": "Substation",
+      "envBatFile": "SubstationEnv.bat",
+      "buildStrategy": "Substation.dev",
+      "ProductName": "Substation",
+      "outputProductFolder": "Substation",
+      "runCmd": "%OutRoot%Winx64\\Product\\Substation\\Substation\\Substation.exe",
+      "CmdShellForegroundColor": "F"
 
-
-
+    },
     {
       "name": "all",
       "enabled": false,
@@ -976,6 +1074,11 @@
           "partName": "Consistencychecker",
           "description": "Consistencychecker",
           "subFolder": "OpenPlantFramework\\ConsistencyChecker"
+        },
+        {
+          "partName": "ConsistencyManager",
+          "description": "ConsistencyManager",
+          "subFolder": "OpenPlantFramework\\ConsistencyManager"
         }
       ]
     },
@@ -1619,6 +1722,189 @@
           "path": "%OP_SrcFolder%openplant\\oppid\\OPPIDIcons\\"
         }
       ]
+    },
+    {
+      "name": "OPPAInstallFiles",
+      "description": "OPPA Install Files",
+      "app": "oppa",
+      "path": "%OP_SrcFolder%openplant\\oppa\\install\\",
+      "files": [
+        {
+          "name": "ProjectAdministrator.wix.xml"
+        },
+        {
+          "name": "ProjectAdministrator.Bundle.wxs"
+        },
+        {
+          "name": "ProjectAdministrator.InstallerAfterLinking.mki"
+        },
+        {
+          "name": "ProjectAdministrator.InstallerBeforeCompile.mki"
+        },
+        {
+          "name": "ProjectAdministrator.RegistryFrag.wxs"
+        },
+        {
+          "name": "ProjectAdministrator.ShortcutFrag.wxs"
+        },
+        {
+          "name": "ProjectAdministratorBundle_LanguagePack.Bundle.wxs"
+        },
+        {
+          "name": "ProjectAdministratorInstallerFiles.prewire.mke"
+        }
+       ]
+    },
+    {
+      "name": "OPPIDInstallFiles",
+      "description": "OPPID Install Files",
+      "app": "oppid",
+      "path": "%OP_SrcFolder%openplant\\oppid\\install\\",
+      "files": [
+        {
+          "name": "OpenPlantPID.wix.xml"
+        },
+        {
+          "name": "OPPID.Bundle.wxs"
+        },
+        {
+          "name": "OPPID.InstallerAfterLinking.mki"
+        },
+        {
+          "name": "OPPID.InstallerBeforeCompile.mki"
+        },
+        {
+          "name": "OPPID.ShortcutFrag.wxs"
+        },
+        {
+          "name": "OPPIDBundle_LanguagePack.Bundle.wxs"
+        },
+        {
+          "name": "oppidInstallerFiles.prewire.mke"
+        }
+       ]
+    },
+    {
+      "name": "OPMInstallFiles",
+      "description": "OPM Install Files",
+      "app": "opm",
+      "path": "%OP_SrcFolder%openplant\\Modeler\\opm\\install\\",
+      "files": [
+        {
+          "name": "PowerOPM.wix.xml"
+        },
+        {
+          "name": "OPM.Bundle.wxs"
+        },
+        {
+          "name": "OPM.InstallerAfterLinking.mki"
+        },
+        {
+          "name": "OPM.InstallerBeforeCompile.mki"
+        },
+        {
+          "name": "OPM.ShortcutFrag.wxs"
+        },
+        {
+          "name": "OPMBundle_LanguagePack.Bundle.wxs"
+        },
+        {
+          "name": "opmInstallerFiles.prewire.mke"
+        }
+       ]
+    },
+    {
+      "name": "OPSEInstallFiles",
+      "description": "OPSE Install Files",
+      "app": "opse",
+      "path": "%OP_SrcFolder%openplant\\openplantsupportengineering\\install\\",
+      "files": [
+        {
+          "name": "OPSE.Bundle.wxs"
+        },
+        {
+          "name": "OPSE.InstallerAfterLinking.mki"
+        },
+        {
+          "name": "OPSE.InstallerBeforeCompile.mki"
+        },
+        {
+          "name": "OPSE.ShortcutFrag.wxs"
+        },
+        {
+          "name": "PowerOPSE.wix.xml"
+        },
+        {
+          "name": "OPSEBundle_LanguagePack.Bundle.wxs"
+        },
+        {
+          "name": "OPSEInstallerFiles.prewire.mke"
+        }
+       ]
+    },
+    {
+      "name": "OPIMInstallFiles",
+      "description": "OPIM Install Files",
+      "app": "opim",
+      "path": "%OP_SrcFolder%openplant\\opim\\IsometricsManager\\install\\",
+      "files": [
+        {
+          "name": "IsometricsManager.Bundle.wxs"
+        },
+        {
+          "name": "IsometricsManager.InstallerAfterLinking.mki"
+        },
+        {
+          "name": "IsometricsManager.InstallerBeforeCompile.mki"
+        },
+        {
+          "name": "IsometricsManager.RegistryFrag.wxs"
+        },
+        {
+          "name": "IsometricsManager.ShortcutFrag.wxs"
+        },
+        {
+          "name": "IsometricsManager.wix.xml"
+        },
+        {
+          "name": "IsometricsManager_LanguagePack.Bundle.wxs"
+        },
+        {
+          "name": "IsometricsManagerInstallerFiles.prewire.mke"
+        }
+       ]
+    },
+    {
+      "name": "OPOMInstallFiles",
+      "description": "OPOM Install Files",
+      "app": "opom",
+      "path": "%OP_SrcFolder%openplant\\opom\\OrthographicsManager\\install\\",
+      "files": [
+        {
+          "name": "OrthographicsManager.Bundle.wxs"
+        },
+        {
+          "name": "OrthographicsManager.InstallerAfterLinking.mki"
+        },
+        {
+          "name": "OrthographicsManager.InstallerBeforeCompile.mki"
+        },
+        {
+          "name": "OrthographicsManager.RegistryFrag.wxs"
+        },
+        {
+          "name": "OrthographicsManager.ShortcutFrag.wxs"
+        },
+        {
+          "name": "OrthographicsManager.wix.xml"
+        },
+        {
+          "name": "OrthographicsManager_LanguagePack.Bundle.wxs"
+        },
+        {
+          "name": "OrthographicsManagerInstallerFiles.prewire.mke"
+        }
+       ]
     },
     {
       "name": "OPSERibbonFiles",
