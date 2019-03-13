@@ -124,6 +124,8 @@ namespace OpenPlantBuildEnvironment
         public bool? AssociateWithAllFiles { get; set; }
 
         public IList<jsonBuildSet> BuildSets { get; set; }
+        public IList<jsonShellEnvVariable> ShellEnvVariables { get; set; }
+
         }
 
     public class jsonCommand

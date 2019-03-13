@@ -28,6 +28,9 @@ namespace OpenPlantBuildEnvironment
 
         public IList<BuildSet> BuildSets { get; set; }
 
+        public IList<ShellEnvVariable> ShellEnvVariables { get; set; }
+
+
         public Application(string name)
         {
             Name = name;
@@ -39,6 +42,8 @@ namespace OpenPlantBuildEnvironment
             Overrides = new List<ApplicationOverride>();
             AssociateWithAllFiles = false;
             BuildSets = new List<BuildSet>();
+            ShellEnvVariables = new List<ShellEnvVariable>();
+
         }
 
         public void UpdateFromJson(jsonApplication jApp)
@@ -91,6 +96,26 @@ namespace OpenPlantBuildEnvironment
                     buildSet.Enabled = jBuildSet.Enabled != null ? (bool)jBuildSet.Enabled : buildSet.Enabled;
                     if(!existingBuildSet)
                         BuildSets.Add(buildSet);
+                }
+            }
+
+            if (ShellEnvVariables == null)
+                ShellEnvVariables = new List<ShellEnvVariable>();
+
+            if (jApp.ShellEnvVariables != null)
+            {
+                foreach (jsonShellEnvVariable jShellEnvVar in jApp.ShellEnvVariables)
+                {
+                    if (String.IsNullOrEmpty(jShellEnvVar.Name))
+                        continue;
+
+                    ShellEnvVariable shellEnvVar = Utilities.Instance.FindShellEnvVariable(ShellEnvVariables, jShellEnvVar.Name);
+                    bool existingShellEnvVar = (shellEnvVar != null);
+                    if (!existingShellEnvVar)
+                        shellEnvVar = new ShellEnvVariable(jShellEnvVar.Name);
+                    shellEnvVar.UpdateFromJson(jShellEnvVar);
+                    if (!existingShellEnvVar)
+                        ShellEnvVariables.Add(shellEnvVar);
                 }
             }
 

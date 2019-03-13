@@ -219,6 +219,10 @@ namespace OpenPlantBuildEnvironment
                 cmdFileContents.Add (String.Format ("set {0}={1}", shellEnvVar.Name, shellEnvVar.Value));
             }
 
+            foreach(ShellEnvVariable shellEnvVar in Application.ShellEnvVariables)
+            {
+                cmdFileContents.Add (String.Format ("set {0}={1}", shellEnvVar.Name, shellEnvVar.Value));
+            }
 
             // Check for mapping of root folder
             //if (!String.IsNullOrEmpty(Stream.MappedDrive))
