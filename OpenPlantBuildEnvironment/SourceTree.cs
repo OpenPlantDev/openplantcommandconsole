@@ -33,6 +33,7 @@ namespace OpenPlantBuildEnvironment
             System.Environment.SetEnvironmentVariable("OP_OutFolder", String.Format("{0}\\", OutFolder));
             System.Environment.SetEnvironmentVariable("OP_AppName", String.Format("{0}", app.Name.ToUpper()));
             System.Environment.SetEnvironmentVariable("OP_StreamName", String.Format("{0}", stream.Name));
+            System.Environment.SetEnvironmentVariable("OP_StreamRemote", String.Format("{0}", stream.RepositoryRoot));
             if (!String.IsNullOrEmpty(Application.OutputProductFolder))
             {
                 // Why two different variables?
@@ -206,8 +207,24 @@ namespace OpenPlantBuildEnvironment
             if(!String.IsNullOrEmpty(ECFrameworkVersion))
                 cmdFileContents.Add(String.Format("set ECF_VER={0}", ECFrameworkVersion));
             cmdFileContents.Add(String.Format("set Teamname={0}", Stream.Name));
+            if(!String.IsNullOrEmpty(Stream.MergeFromStream))
+            {
+                cmdFileContents.Add(String.Format("set OP_MergeFromStream={0}", Stream.MergeFromStream));
+                Stream mergeFromStream = Utilities.Instance.FindStream(Configuration.Streams, Stream.MergeFromStream);
+                if(mergeFromStream != null)
+                {
+                    cmdFileContents.Add(String.Format("set OP_MergeFromRemote={0}", mergeFromStream.RepositoryRoot));
+                }
+            }
             if(!String.IsNullOrEmpty(Stream.MergeToStream))
-                cmdFileContents.Add(String.Format("set OP_MERGETOSTREAM={0}", Stream.MergeToStream));
+            {
+                cmdFileContents.Add(String.Format("set OP_MergeToStream={0}", Stream.MergeToStream));
+                Stream mergeToStream = Utilities.Instance.FindStream(Configuration.Streams, Stream.MergeToStream);
+                if(mergeToStream != null)
+                {
+                    cmdFileContents.Add(String.Format("set OP_MergeToRemote={0}", mergeToStream.RepositoryRoot));
+                }
+            }
             cmdFileContents.Add(String.Format("set BUILDSTRATEGYPATH={0}", Settings.LocalBuildStrategiesFolder));
             cmdFileContents.Add(String.Format("set DEBUG={0}", Debug ? 1 : 0));
 

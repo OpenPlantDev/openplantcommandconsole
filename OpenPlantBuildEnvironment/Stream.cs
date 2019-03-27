@@ -16,6 +16,7 @@ namespace OpenPlantBuildEnvironment
         public string Description { get; set; }
         public string PowerPlatformVersion { get; set; }
         public string ECFrameworkVersion { get; set; }
+        public string MergeFromStream { get; set; }
         public string MergeToStream { get; set; }
         public bool? Debug { get; set; }
 
@@ -42,6 +43,7 @@ namespace OpenPlantBuildEnvironment
             Description = !String.IsNullOrEmpty(jStream.Description) ? jStream.Description : Description;
             PowerPlatformVersion = !String.IsNullOrEmpty(jStream.PowerPlatformVersion) ? jStream.PowerPlatformVersion : PowerPlatformVersion;
             ECFrameworkVersion = !String.IsNullOrEmpty(jStream.ECFrameworkVersion) ? jStream.ECFrameworkVersion : ECFrameworkVersion;
+            MergeFromStream = !String.IsNullOrEmpty(jStream.MergeFromStream) ? jStream.MergeFromStream : MergeFromStream;
             MergeToStream = !String.IsNullOrEmpty(jStream.MergeToStream) ? jStream.MergeToStream : MergeToStream;
             Debug = (jStream.Debug != null) ? (bool)jStream.Debug : Debug;
 
