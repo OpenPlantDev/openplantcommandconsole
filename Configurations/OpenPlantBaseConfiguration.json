@@ -418,6 +418,11 @@
       "iconname": "MergeOut.ico"
     },
     {
+      "name": "mergeFromStream",
+      "label": "Merge From Stream",
+      "cmd": "call mergeFromStream.bat",
+    },
+    {
       "name": "merge",
       "label": "push --xstream",
       //"cmd": "if not [%OP_MERGETOSTREAM%] == [] (bb -t %OP_MERGETOSTREAM% push -u --xstream) else (echo MergeToStream is not defined for stream %TeamName%)",
@@ -519,6 +524,7 @@
       "enabled": false,
       "debug": true,
       "PowerPlatformVersion": "10.8.0.34",
+      "MergeFromStream": "OpenPlantCurrentDev",
       "MergeToStream": "OpenPlantNextDev"
     },
     {
@@ -528,6 +534,7 @@
       "enabled": false,
       "debug": true,
       "PowerPlatformVersion": "10.8.0.34",
+      "MergeFromStream": "OpenPlantCurrentPRG",
       "MergeToStream": "OpenPlantNextPRG"
     },
     {
@@ -536,7 +543,8 @@
       "RepositoryRoot": "http://openplantnextprg.hgbranches.bentley.com",
       "enabled": false,
       "debug": true,
-      "PowerPlatformVersion": "10.11.0.38",
+      "PowerPlatformVersion": "10.8.0.34",
+      "MergeFromStream": "OpenPlantNextDev",
       "MergeToStream": "Vancouver"
     },
     {
@@ -545,7 +553,7 @@
       "RepositoryRoot": "http://vancouver.hgbranches.bentley.com",
       "enabled": false,
       "debug": true,
-      "MergeToStream": "OpenPlantCurrentDev",
+      "MergeFromStream": "OpenPlantNextPRG",
       "PowerPlatformVersion": "10.9.0.19"
     },
     {

@@ -30,7 +30,7 @@ IF NOT EXIST %folderName% (
  )
 
 cd
-rem Check for incoming changes using --bundle, set errorlevel to 1 if no changes
+rem Check for incoming changes using --bundle, NOTE: hg sets errorlevel to 1 if no changes
 rem echo hg incoming %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/
 hg incoming %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/ --bundle incoming.hg
 if errorlevel 1 (
@@ -38,10 +38,18 @@ if errorlevel 1 (
     goto Done
 )
 
-echo hg pull %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/
-hg pull -u %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/
+rem use the bundle file if it was created
+if exist incoming.hg (
+    echo hg pull incoming.hg
+    hg pull -u incoming.hg
+    del incoming.hg
+    pause
+) else (
+    echo hg pull %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/
+    hg pull -u %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/
+)
 
-rem check for unresolved, if none go to push
+rem check for unresolved, if none go to push.  NOTE: hg sets errorlevel to 1 if unresolved changes (merge required)
 if errorlevel 1 (
     set unresolved=1
     echo.
