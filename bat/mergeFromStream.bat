@@ -5,12 +5,15 @@ if /i [%OP_StreamName%] == [] (
 )
 
 if /i [%OP_MergeFromStream%] == [] (
-    echo OP_MergeFromStream is not set
-    goto done
+    echo OP_MergeFromStream is not set, will only pull from %OP_StreamName%
+    rem goto done
 )
 
 echo Merging %OP_MergeFromStream% to %OP_StreamName%
 pause
+
+if /i [%OP_StreamName%] == [OpenPlantCurrentPRG] set skipPushValidation=1
+if /i [%OP_StreamName%] == [OpenPlantNextPRG] set skipPushValidation=1
 
 cd %SrcRoot%
 
@@ -69,6 +72,7 @@ call mergeRepo spectools
 cd ..\..
 
 if /i [%OP_StreamName%] == [OpenPlantCurrentPRG] (
+  set OP_RepoGroup=util
   echo merging buildstrategies
   call mergeRepo buildstrategies
 )
