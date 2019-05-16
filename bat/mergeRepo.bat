@@ -7,19 +7,26 @@ rem OP_RepoGroup
 
 rem %1 = folder name
 rem %2 = repo name
-
-if [%OP_MergeFromRemote%] == [] (
-    echo OP_MergeFromRemote not set, pulling from %OP_StreamRemote% only
-)
-
+rem %3 = alternative merge from remote repository, currently needed for DgnDomains/Plant on NextPRG
 
 set folderName=%1
 set repoName=%2
 if [%repoName%] == [] set repoName=%folderName%
+set mergeFromRemote=%3
+if [%mergeFromRemote%] == [] (
+    if not [%OP_MergeFromRemote%] == [] set mergeFromRemote=%OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/
+)
 
 echo.
 echo.
 echo folderName=%folderName%, repoName=%repoName%
+echo mergeFromRemote=%mergeFromRemote%
+rem pause
+
+if [%mergeFromRemote%] == [] (
+    echo OP_MergeFromRemote not set, pulling from %OP_StreamRemote% only
+)
+
 
 IF NOT EXIST %folderName% (
     echo  %folderName% does not exist. Cloning...
@@ -35,26 +42,29 @@ IF NOT EXIST %folderName% (
     hg pull -u %OP_StreamRemote%/%OP_RepoGroup%/%repoName%/
  )
  
-if [%OP_MergeFromRemote%] == [] (
+if [%mergeFromRemote%] == [] (
     goto done
 )
 
 cd
 rem Check for incoming changes using --bundle, NOTE: hg sets errorlevel to 1 if no changes
-rem echo hg incoming %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/
-hg incoming %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/ --bundle incoming.hg
+rem echo hg incoming %mergeFromRemote%
+hg incoming %mergeFromRemote% --bundle incoming.hg
 if errorlevel 1 (
     echo No changes found
     goto Done
 )
+
+echo Changes found
+rem goto Done
 
 rem use the bundle file if it was created
 if exist incoming.hg (
     echo hg pull incoming.hg
     hg pull -u incoming.hg
 ) else (
-    echo hg pull %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/
-    hg pull -u %OP_MergeFromRemote%/%OP_RepoGroup%/%repoName%/
+    echo hg pull %mergeFromRemote%
+    hg pull -u %mergeFromRemote%
 )
 
 rem skip validation if skipPushValidation is set to 1
