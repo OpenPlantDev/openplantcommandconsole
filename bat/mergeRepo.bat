@@ -74,8 +74,10 @@ rem check for unresolved or multiple heads, if none go to push.
 echo.
 echo ****
 echo !!!! Check for unresolved changes or multiple heads !!!!
-echo If found run merge in another command shell before proceeding to push
-echo.
+echo If found, open another command shell and run 
+echo hg merge (if necessary, resolve any conflicts)
+echo hg commit -m"Merge"
+echo return to this command shell and press any key to contiue with the push
 echo ****
 echo.
 pause Press any key to proceed to push

@@ -12,8 +12,16 @@ if /i [%OP_MergeFromStream%] == [] (
 echo Merging %OP_MergeFromStream% to %OP_StreamName%
 pause
 
+if /i [%OP_StreamName%] == [OpenPlantCurrentDev] (
+    echo CAUTION!!!! - Are you sure that you want to Merge %OP_MergeFromStream% to %OP_StreamName%
+    echo Press Ctrl-C to cancel if not
+    pause
+)
+
+
 if /i [%OP_StreamName%] == [OpenPlantCurrentPRG] set skipPushValidation=1
 if /i [%OP_StreamName%] == [OpenPlantNextPRG] set skipPushValidation=1
+if /i [%OP_StreamName%] == [Vancouver] set skipPushValidation=1
 
 cd %SrcRoot%
 
