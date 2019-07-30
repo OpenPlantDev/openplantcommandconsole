@@ -1076,6 +1076,23 @@ namespace OpenPlantCommandConsole
 
             }
 
+        private void ExplorePathAndSelectFile(string fullPath)
+            {
+            if(String.IsNullOrEmpty (fullPath))
+                return;
+
+            if(!System.IO.File.Exists (fullPath))
+                {
+                System.Windows.Forms.MessageBox.Show (String.Format ("File not found: {0}", fullPath), "Location not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+                }
+            string exe = "explorer.exe";
+            string args = String.Format("/select,\"{0}\"", fullPath);
+
+            System.Diagnostics.Process.Start (exe, args);
+
+            }
+
         private void OpenCommandShellAtPath(string path)
             {
             if(String.IsNullOrEmpty (path))
@@ -1801,12 +1818,12 @@ namespace OpenPlantCommandConsole
             }
         private void ExploreFileContextMenuItem_Click(object sender, EventArgs e)
             {
-            string path = GetPathFromSelectedFilesTreeNode ();
+            string fileName = GetFileNameFromSelectedFilesTreeNode();
 
-            if(String.IsNullOrEmpty (path) || !System.IO.Directory.Exists (path))
+            if(String.IsNullOrEmpty (fileName) || !System.IO.File.Exists (fileName))
                 return;
 
-            ExplorePath (path);
+            ExplorePathAndSelectFile (fileName);
             }
 
         private void CmdShellAtFileContextMenuItem_Click(object sender, EventArgs e)
@@ -1908,7 +1925,7 @@ namespace OpenPlantCommandConsole
             if((Configuration.Settings.FilesDoubleClickAction == Settings.LocationsDoubleClickActionOption.Open) && System.IO.File.Exists (fileName))
                 OpenFile (fileName);
             else if((Configuration.Settings.FilesDoubleClickAction == Settings.LocationsDoubleClickActionOption.Explorer) && System.IO.Directory.Exists (path))
-                ExplorePath (path);
+                ExplorePathAndSelectFile (fileName);
             else if((Configuration.Settings.FilesDoubleClickAction == Settings.LocationsDoubleClickActionOption.CmdShell) && System.IO.Directory.Exists (path))
                 OpenCommandShellAtPath (path);
             else if(Configuration.Settings.FilesDoubleClickAction == Settings.LocationsDoubleClickActionOption.CopyToClipboard)
